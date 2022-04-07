@@ -1,0 +1,26 @@
+@import '../../../App.css';
+
+.container__items{
+    width: 100%;
+}
+
+.container__items_wrapper{
+    display: flex;
+    overflow-x: auto;
+    padding-right: 5rem;
+    scroll-snap-type: x mandatory;
+}
+
+.container__items_wrapper::-webkit-scrollbar {
+    height: 3px;
+}
+
+.container__items_wrapper::-webkit-scrollbar-track-piece {
+    background-color: transparent !important;
+}
+
+.container__items_wrapper::-webkit-scrollbar-thumb:vertical,
+.container__items_wrapper::-webkit-scrollbar-thumb:horizontal {
+    background-color: #f1f1f1 !important;
+    border-radius: 50px;
+}
