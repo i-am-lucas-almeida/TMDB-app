@@ -2,33 +2,30 @@
 
 .menu__container{
     margin: 0 auto;
-    padding: 2rem 3rem;
     max-width: 100%;
     width: 1440px;
     background-color: var(--pale-blue);
+    padding: 2rem 5rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999999;
+}
+
+.menu__container_logo{
+    width: 20rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-radius: 15px;
 }
 
-.menu__container_navigation{
-    display: flex;
-    align-items: flex-end;
+.menu__container_logo > h2{
+    margin-left: 1rem;
 }
 
-.menu__container_navigation > li{
-    margin: 0 2rem;
-}
+@media(max-width: 600px){
 
-.menu__container_user{
-    width: 3rem;
-}
+    .menu__container{
+        padding: 2rem;
+    }
 
-.icon:hover > path{
-    fill: var(--red) !important;
-}
-
-.icon__active > path{
-    fill: var(--white) !important;
 }

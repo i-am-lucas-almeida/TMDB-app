@@ -2,83 +2,59 @@
 
 .media__container_card{
     margin: 2rem;
-    width: 25rem;
+    width: 35rem;
 }
 
-.media__container_interact{
-    background-color: #000;
-    margin-bottom: 1rem;
-    height: 35rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.media__container_interact > img{
-    transition: .5s;
+.media__image{
+    margin-bottom: .5rem;
+    border-radius: 10px;
     width: 100%;
-    height: 100%;
+    height: 20rem;
 }
 
-.media__container_interact:hover > img{
-    opacity: .5;
-    transform: scale(1.1);
-}
-
-.media__play{
-    background-color: rgba(255, 255, 255, 0.402);
-    color: var(--white);
-    font-size: 1.8rem;
-    display: none;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50px;
-    padding: .5rem;
-    padding-right: 1rem;
-    cursor: pointer;
-    z-index: 99999;
-}
-
-.media__container_interact:hover > .media__play{
-    display: flex !important;
-}
-
-.media__play > img{
-    margin-right: 1rem;
-}
-
-.media__category{
-    color: var(--white);
-    opacity: .75;
-    font-weight: 300;
+.media__container_vote{
+    padding-top: 1.5rem;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
-.media__category > span {
+.media__container_vote > img{
+    width: 2rem;
     margin-right: 5px;
 }
 
-.media__container_info{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-}
-
 .media__vote{
-    color: var(--yellow);
+    font-size: 1.6rem;
     font-weight: 500;
-}
-
-.media__vote > span{
-    color: var(--white);
-    opacity: .75;
 }
 
 .media__title{
-    margin-top: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 500;
+}
+
+@media(max-width: 1200px) {
+
+    .media__container_card{
+        margin: 2rem 1rem;
+        width: 25rem;
+    }
+
+}
+
+@media(max-width: 700px) {
+
+    .media__container_card{
+        width: 45%;
+    }
+
+}
+
+@media(max-width: 500px) {
+
+    .media__container_card{
+        width: 100%;
+        margin: 2rem 0;
+    }
+
 }

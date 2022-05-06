@@ -11,16 +11,16 @@
 }
 
 body::-webkit-scrollbar {
-    width: 3px;
+    width: 5px;
 }
 
 body::-webkit-scrollbar-track-piece {
-    background-color: transparent !important;
+    background-color: var(--pale-blue) !important;
 }
 
 body::-webkit-scrollbar-thumb:vertical,
 body::-webkit-scrollbar-thumb:horizontal {
-    background-color: #f1f1f1 !important;
+    background-color: var(--red) !important;
     border-radius: 50px;
 }
 
@@ -42,7 +42,6 @@ body{
     color: var(--white);
     font-size: 1.6rem;
     font-family: 'Outfit', sans-serif;
-    padding: 3rem;
     overflow-x: hidden;
 }
 
@@ -51,9 +50,14 @@ img{
     object-fit: cover;
 }
 
+a{
+    color: inherit;
+}
+
 .container{
     margin: 0 auto;
-    padding: 5rem 0;
+    padding: 0 5rem;
+    padding-bottom: 5rem;
     max-width: 100%;
     width: 1440px;
 }
@@ -61,7 +65,24 @@ img{
 .title{
     margin: 5rem 0;
     margin-top: 8rem;
-    font-size: 4rem;
-    font-weight: 300;
+    font-size: 3rem;
+    font-weight: 300; 
     text-align: center;
+}
+
+.result{
+    text-align: center;
+    color: var(--yellow);
+    margin: 5rem 0;
+    margin-top: 8rem;
+    font-size: 3rem;
+    font-weight: 300;  
+}
+
+@media(max-width: 600px) {
+
+    .container{
+        padding: 0 2rem;
+    }
+
 }
