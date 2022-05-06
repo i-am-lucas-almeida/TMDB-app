@@ -1,44 +1,49 @@
 import MediaCard from "../../layout/MediaCard";
+import FormSearch from '../../layout/FormSearch';
+import ErrorMessage from "../../layout/ErrorMessage";
+import Loader from '../../../components/layout/Loader';
 
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useFetch } from "../../../hook/useFetch";
 
 const Search = () => {
 
-    const API_KEY = process.env.REACT_APP_API_KEY;
-
     const { id } = useParams();
 
-    const [searchMovies, setSearchMovies] = useState([]);
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    const URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&query=${id}&page=1`;
 
-    useEffect(() => {
-
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&query=${id}`)
-
-            .then((resp) => resp.json())
-            .then((data) => {
-
-                setSearchMovies(data.results);
-
-            });
-
-    }, [API_KEY, id]);
+    const { data, error, loading } = useFetch(URL);
 
     return (
 
-        <div className='container'>
+        <>
 
-            <div className='home__container_content'>
+            <FormSearch />
 
-                {searchMovies.length > 0 && searchMovies.map((trend) =>
+            {error && <ErrorMessage />}
 
-                    <MediaCard key={trend.id} {...trend} />
+            {loading && <Loader/>}
 
-                )}
+            {!loading &&
 
-            </div>
+                <div className='container'>
 
-        </div>
+                    <div className='home__container_content'>
+
+                        {data.results && data.results.map((trend) =>
+
+                            <MediaCard key={trend.id} {...trend} />
+
+                        )}
+
+                    </div>
+
+                </div>
+
+            }
+
+        </>
 
     );
 

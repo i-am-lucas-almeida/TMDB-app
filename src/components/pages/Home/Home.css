@@ -1,6 +1,6 @@
 @import "../../../App.css";
 
-.home__container_content{
+.home__container_content {
     display: flex;
     align-items: flex-start;
     justify-content: center;

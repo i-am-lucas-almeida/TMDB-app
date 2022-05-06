@@ -1,55 +1,49 @@
-import { useEffect, useState } from 'react';
+import { useFetch } from '../../../hook/useFetch';
+
 import MediaCard from '../../layout/MediaCard';
 import FormSearch from '../../layout/FormSearch';
+import ErrorMessage from '../../layout/ErrorMessage';
 import '../Home/Home.css';
+import Loader from '../../../components/layout/Loader';
 
 export default function Home() {
 
     const API_KEY = process.env.REACT_APP_API_KEY;
 
-    const [trending, setTrending] = useState([]);
+    const URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&language=pt-BR`;
 
-    const getTrendingMedias = (API) => {
-
-        fetch(API)
-
-            .then((resp) => resp.json())
-            .then((data) => {
-
-                setTrending(data.results);
-
-            });
-
-    }
-
-    useEffect(() => {
-
-        getTrendingMedias(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&language=pt-BR`);
-
-    }, [API_KEY]);
+    const { data, error, loading } = useFetch(URL);
 
     return (
 
         <>
 
-            <FormSearch/>
+            <FormSearch />
 
-            <div className='container'>
+            {error && <ErrorMessage/>}
 
-                <h1 className="title">Filmes Populares</h1>
+            {loading && <Loader/>} 
 
-                <div className='home__container_content'>
+            {!loading &&
 
-                    {trending.length > 0 && trending.map((trend) =>
+                <div className='container'>
 
-                        <MediaCard key={trend.id} {...trend} />
+                    <h1 className="title">Filmes Populares</h1>
 
-                    )}
+                    <div className='home__container_content'>
+
+                        {data.results && data.results.map((item) =>
+
+                            <MediaCard key={item.id} {...item} />
+
+                        )}
+
+                    </div>
 
                 </div>
 
-            </div>
-
+            }
+            
         </>
     )
 
