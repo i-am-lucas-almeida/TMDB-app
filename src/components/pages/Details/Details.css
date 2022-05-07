@@ -59,6 +59,7 @@
 }
 
 .details__info > aside > h3{
+    font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--soft-blue);
 }
@@ -69,6 +70,7 @@
 }
 
 .details__genres > h3, .details__synopsis > h3{
+    font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--soft-blue);
 }
@@ -91,6 +93,7 @@
 }
 
 .details__cast > h3{
+    font-size: 2rem;
     color: var(--soft-blue);
     margin-bottom: 1rem;
 }
@@ -110,26 +113,22 @@
 }
 
 .details__synopsis{
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .details__overview{
     font-size: 1.8rem;
     line-height: 3rem;
-}
-
-.details__overview{
-    font-size: 1.8rem;
-    line-height: 3rem;
+    margin-bottom: 1rem;
 }
 
 .read-more{
-    margin-left: 1rem;
-    background-color: var(--soft-blue);
-    color: var(--white);
+    display: flex;
+    align-items: flex-end;
+    color: var(--red);
     font-weight: 500;
-    font-size: 1.5rem;
-    padding: .5rem 1rem;
+    font-size: 1.8rem;
+    font-family: inherit;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -137,8 +136,7 @@
 }
 
 .read-more:hover{
-    background-color: var(--white);
-    color: var(--dark-blue);
+    text-decoration: underline;
 }
 
 .details__button{

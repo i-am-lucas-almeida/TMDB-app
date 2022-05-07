@@ -1,24 +1,32 @@
 import { useFetch } from '../../../hook/useFetch';
+import {useState} from 'react';
 
 import MediaCard from '../../layout/MediaCard';
+import Pagination from '../../layout/Pagination';
 import FormSearch from '../../layout/FormSearch';
 import ErrorMessage from '../../layout/ErrorMessage';
 import '../Home/Home.css';
 import Loader from '../../../components/layout/Loader';
+import { getTrending } from '../../../lib/apiLinks';
 
 export default function Home() {
 
-    const API_KEY = process.env.REACT_APP_API_KEY;
+    let [page, setPage] = useState('');
 
-    const URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&language=pt-BR`;
+    const URL = getTrending(page);
 
     const { data, error, loading } = useFetch(URL);
+
+    const totalPages = data.total_pages;
+    const current_page = data.page;
+
+    page = current_page;
 
     return (
 
         <>
 
-            <FormSearch />
+            <FormSearch setPage={setPage} current_page={current_page} />
 
             {error && <ErrorMessage/>}
 
@@ -39,6 +47,8 @@ export default function Home() {
                         )}
 
                     </div>
+
+                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages}/>
 
                 </div>
 

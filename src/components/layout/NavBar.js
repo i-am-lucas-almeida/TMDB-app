@@ -18,6 +18,8 @@ export default function NavBar() {
 
                 </Link>
 
+                <Link to='/generos'>Gêneros</Link>
+
             </div>
 
         </div>

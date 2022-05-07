@@ -1,11 +1,10 @@
 import './Details.css';
 import { useFetch } from '../../../hook/useFetch';
+import { getCasting } from '../../../lib/apiLinks';
 
 const Casting = ({id}) => {
 
-    const API_KEY = process.env.REACT_APP_API_KEY;
-
-    const URL = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`;
+    const URL = getCasting(id);
 
     const {data} = useFetch(URL);
 

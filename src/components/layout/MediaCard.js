@@ -2,20 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../layout/styles/MediaCard.css';
 import iconStar from '../../assets/star-solid.svg';
+import { getImageDefault, getImages } from '../../lib/apiLinks';
 
 export default function MediaCard({ id, title, backdrop_path, vote_average }) {
 
-    const IMG_API = 'https://image.tmdb.org/t/p/w1280';
+    const IMG_API = getImages();
+    const IMG_DEF = getImageDefault();
 
     return (
 
         <div className="media__container_card" title={title && title}>
 
-            <Link to={'/details/' + id}>
+            <Link to={`/detalhes/${id}/${title}`}>
 
                 <div className='media__container_interact'>
 
-                    <img src={backdrop_path ? (IMG_API + backdrop_path) : 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'} alt={title && title} className='media__image' />
+                    <img src={backdrop_path ? (IMG_API + backdrop_path) : IMG_DEF} alt={title && title} className='media__image' />
 
                 </div>
 

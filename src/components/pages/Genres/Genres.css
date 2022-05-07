@@ -1,0 +1,41 @@
+@import '../../../App.css';
+
+.genres__container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.genres__item{
+    display: grid;
+    place-items: center;
+    margin: 1rem;
+    width: 20rem;
+    height: 15rem;
+    border-radius: 8px;
+}
+
+.genres__item:hover{
+    animation: gelatine .8s ease;
+}
+
+.genres__item > h3{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+@keyframes gelatine {
+    from, to { transform: scale(1, 1); }
+    25% { transform: scale(0.95, 1.05); }
+    50% { transform: scale(1.05, 0.95); }
+    75% { transform: scale(0.95, 1.05); }
+}
+
+.color--1{
+    background-color: #0E7490 !important;
+}
+
+.color--2{
+    background-color: #171E31 !important;
+}

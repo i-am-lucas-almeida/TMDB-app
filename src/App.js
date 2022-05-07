@@ -7,7 +7,9 @@ import Footer from './components/layout/Footer';
 
 import Home from './components/pages/Home/Home';
 import Details from './components/pages/Details/Details';
+import Genres from './components/pages/Genres/Genres';
 import Search from './components/pages/Search/Search';
+import Movies from './components/pages/Movies/Movies';
 import NotFound from './components/layout/NotFound';
 
 export default function App() {
@@ -25,8 +27,10 @@ export default function App() {
         <Routes>
 
           <Route path='/' element={<Home/>} />
-          <Route path='/details/:id' element={<Details/>} />
-          <Route path='/search/:id' element={<Search/>} />
+          <Route path='/detalhes/:id/:name' element={<Details/>} />
+          <Route path='/pesquisa/:id' element={<Search/>} />
+          <Route path='/generos' element={<Genres/>} />
+          <Route path='/filmes/:id/:name' element={<Movies/>} />
           <Route path='*' element={<NotFound/> }/>
 
         </Routes>

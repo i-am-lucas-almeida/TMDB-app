@@ -1,12 +1,11 @@
 import './Details.css';
 import { FaPlay } from 'react-icons/fa';
 import {useFetch} from '../../../hook/useFetch';
+import { getTrailer } from '../../../lib/apiLinks';
 
 const Trailer = ({id}) => {
 
-    const API_KEY = process.env.REACT_APP_API_KEY;
-
-    const URL = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=pt-BR`;
+    const URL = getTrailer(id);
 
     const {data} = useFetch(URL);
 

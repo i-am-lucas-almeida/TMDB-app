@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import './styles/FormSearch.css';
 import ImageSearch from '../../assets/icon-search.svg';
 
-const Search = () => {
+const FormSearch = ({ setPage, current_page }) => {
 
-    const [searchTrending, setSearchTrending] = useState('');
+    const [search, setSearch] = useState('');
 
     const handleOnChange = (e) => {
 
-        setSearchTrending(e.target.value);
+        setSearch(e.target.value);
 
     }
 
@@ -22,13 +22,21 @@ const Search = () => {
 
                 <img src={ImageSearch} alt='icon search' className='search__icon' />
 
-                <input type='search' name={searchTrending} className='search__input' placeholder='Pesquise por filmes...' onChange={handleOnChange} value={searchTrending} />
+                <input type='search' name={search} className='search__input' placeholder='Pesquise por filmes...' onChange={handleOnChange} value={search} />
 
-                <Link to={'/search/' + searchTrending} className='btn-search'>
+                {search ?
 
-                    Pesquisar
+                    <Link to={`/pesquisa/${search}`} className='btn-search' onClick={() => setPage(current_page === 1)}>
 
-                </Link>
+                        Buscar
+
+                    </Link>
+
+                    :
+
+                    <span className='btn-search'>Buscar</span>
+                    
+                }
 
             </form>
 
@@ -37,4 +45,4 @@ const Search = () => {
     );
 }
 
-export default Search;
+export default FormSearch;

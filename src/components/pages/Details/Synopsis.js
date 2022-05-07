@@ -1,16 +1,16 @@
 import './Details.css';
-import {useState} from 'react';
+import {FiChevronDown, FiChevronUp} from 'react-icons/fi';
+import { useState } from 'react';
 import { useFetch } from '../../../hook/useFetch';
+import { getSynopsis } from '../../../lib/apiLinks';
 
-const Synopsis = ({id}) => {
+const Synopsis = ({ id }) => {
 
-    const API_KEY = process.env.REACT_APP_API_KEY;
-
-    const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR`;
+    const URL = getSynopsis(id);
 
     const [readMore, setReadMore] = useState(true);
 
-    const {data} = useFetch(URL);
+    const { data } = useFetch(URL);
 
     return (
 
@@ -24,11 +24,23 @@ const Synopsis = ({id}) => {
 
                     {readMore ?
 
-                        <p className='details__overview'>{data.overview.substring(0, 200) + '...'}<span className='read-more' onClick={() => setReadMore(!readMore)}>ler mais</span></p>
+                        <div>
+
+                            <p className='details__overview'>{data.overview.substring(0, 150) + '...'}</p>
+
+                            <p className='read-more' onClick={() => setReadMore(!readMore)}>Ler mais <FiChevronDown/></p>
+
+                        </div>
 
                         :
 
-                        <p className='details__overview'>{data.overview}<span className='read-more' onClick={() => setReadMore(!readMore)}>ler menos</span></p>
+                        <div>
+
+                            <p className='details__overview'>{data.overview}</p>
+
+                            <p className='read-more' onClick={() => setReadMore(!readMore)}>Ler menos <FiChevronUp/></p>
+
+                        </div>
 
                     }
 

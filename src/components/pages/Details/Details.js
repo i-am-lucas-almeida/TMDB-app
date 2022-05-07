@@ -11,16 +11,16 @@ import Synopsis from './Synopsis';
 
 import Loader from '../../../components/layout/Loader';
 import ErrorMessage from '../../layout/ErrorMessage';
+import { getDetails, getImageDefault, getImages } from '../../../lib/apiLinks';
 
 export default function Details() {
 
     const { id } = useParams();
 
-    const IMG_API = 'https://image.tmdb.org/t/p/w1280';
+    const IMG_API = getImages();
+    const IMG_DEF = getImageDefault();
 
-    const API_KEY = process.env.REACT_APP_API_KEY;
-
-    const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR`;
+    const URL = getDetails(id);
 
     const { data: items, loading, error } = useFetch(URL);
 
@@ -43,7 +43,7 @@ export default function Details() {
 
                     <div className='container__details_poster'>
 
-                        <img src={items.poster_path ? (IMG_API + items.poster_path) : 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'} alt={items.title && items.title} />
+                        <img src={items.poster_path ? (IMG_API + items.poster_path) : IMG_DEF} alt={items.title && items.title} />                        
 
                     </div>
 
