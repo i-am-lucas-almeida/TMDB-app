@@ -8,7 +8,7 @@ import FormSearch from '../../layout/FormSearch';
 import ErrorMessage from "../../layout/ErrorMessage";
 import Loader from '../../../components/layout/Loader';
 import Pagination from "../../layout/Pagination";
-
+import useTitle from '../../layout/useTitle';
 
 const Search = () => {
 
@@ -24,13 +24,15 @@ const Search = () => {
     const totalPages = data.total_pages;
     const current_page = data.page;
 
+    useTitle(`Filmes App | ${id}`);
+
     page = current_page;
 
     return (
 
         <>
 
-            <FormSearch setPage={setPage} current_page={current_page} />
+            <FormSearch setPage={setPage} current_page={current_page} page={page} />
 
             {error && <ErrorMessage />}
 

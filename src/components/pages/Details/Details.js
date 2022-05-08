@@ -12,6 +12,7 @@ import Synopsis from './Synopsis';
 import Loader from '../../../components/layout/Loader';
 import ErrorMessage from '../../layout/ErrorMessage';
 import { getDetails, getImageDefault, getImages } from '../../../lib/apiLinks';
+import useTitle from '../../layout/useTitle';
 
 export default function Details() {
 
@@ -23,6 +24,8 @@ export default function Details() {
     const URL = getDetails(id);
 
     const { data: items, loading, error } = useFetch(URL);
+
+    useTitle(`Filmes App ${items.title ? '| ' + items.title : ''}`);
 
     const genres = items.genres;
     const vote_average = (items.vote_average / 2);

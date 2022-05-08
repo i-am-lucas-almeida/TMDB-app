@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-:root{
+:root {
     --dark-blue: #10141E;
     --pale-blue: #161D2F;
     --white: #ffffff;
@@ -24,7 +24,7 @@ body::-webkit-scrollbar-thumb:horizontal {
     border-radius: 50px;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -32,12 +32,12 @@ body::-webkit-scrollbar-thumb:horizontal {
     text-decoration: none;
 }
 
-html{
+html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
 
-body{
+body {
     background-color: var(--dark-blue);
     color: var(--white);
     font-size: 1.6rem;
@@ -45,16 +45,16 @@ body{
     overflow-x: hidden;
 }
 
-img{
+img {
     max-width: 100%;
     object-fit: cover;
 }
 
-a{
+a {
     color: inherit;
 }
 
-.container{
+.container {
     margin: 0 auto;
     padding: 0 2rem;
     padding-bottom: 5rem;
@@ -62,19 +62,30 @@ a{
     width: 1440px;
 }
 
-.title{
+.title {
     margin: 5rem 0;
     margin-top: 8rem;
     font-size: 3rem;
-    font-weight: 300; 
+    font-weight: 300;
     text-align: center;
 }
 
-.error-message{
+.error-message {
     text-align: center;
     color: var(--red);
     margin: 5rem 0;
     margin-top: 8rem;
     font-size: 3rem;
     font-weight: 300;
+}
+
+.video-responsive{
+    width: 100%;
+    height: 100%;
+}
+
+.video-responsive iframe {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }

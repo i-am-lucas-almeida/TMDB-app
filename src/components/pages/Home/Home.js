@@ -1,5 +1,5 @@
 import { useFetch } from '../../../hook/useFetch';
-import {useState} from 'react';
+import { useState } from 'react';
 
 import MediaCard from '../../layout/MediaCard';
 import Pagination from '../../layout/Pagination';
@@ -8,8 +8,11 @@ import ErrorMessage from '../../layout/ErrorMessage';
 import '../Home/Home.css';
 import Loader from '../../../components/layout/Loader';
 import { getTrending } from '../../../lib/apiLinks';
+import useTitle from '../../layout/useTitle';
 
 export default function Home() {
+
+    useTitle('Filmes App | Home');
 
     let [page, setPage] = useState('');
 
@@ -28,9 +31,9 @@ export default function Home() {
 
             <FormSearch setPage={setPage} current_page={current_page} />
 
-            {error && <ErrorMessage/>}
+            {error && <ErrorMessage />}
 
-            {loading && <Loader/>} 
+            {loading && <Loader />}
 
             {!loading &&
 
@@ -48,12 +51,12 @@ export default function Home() {
 
                     </div>
 
-                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages}/>
+                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages} />
 
                 </div>
 
             }
-            
+
         </>
     )
 

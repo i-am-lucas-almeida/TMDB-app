@@ -9,13 +9,15 @@ import Pagination from '../../layout/Pagination';
 
 import { useFetch } from '../../../hook/useFetch';
 import { getMovies } from '../../../lib/apiLinks';
+import useTitle from '../../layout/useTitle';
 
 const Movies = () => {
-
 
     let [page, setPage] = useState('');
 
     const { name, id } = useParams();
+
+    useTitle(`Filmes App | ${name}`)
 
     const URL = getMovies(id, page);
 

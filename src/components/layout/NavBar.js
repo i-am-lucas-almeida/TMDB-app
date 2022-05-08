@@ -1,6 +1,7 @@
 import './styles/NavBar.css';
 import iconLogo from '../../assets/logo.svg';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { RiMovie2Fill } from 'react-icons/ri';
 
 export default function NavBar() {
 
@@ -8,19 +9,32 @@ export default function NavBar() {
 
         <div className="menu__container">
 
-            <div>
+            <ul>
 
-                <Link to='/' className='menu__container_logo'>
+                <li className='menu__container-item'>
 
-                    <img src={iconLogo} alt="ícone logo" />
+                    <Link to='/' className='menu__container_logo'>
 
-                    <h2>Filmes App</h2>
+                        <img src={iconLogo} alt="ícone logo" />
 
-                </Link>
+                        <h2>Filmes App</h2>
 
-                <Link to='/generos'>Gêneros</Link>
+                    </Link>
 
-            </div>
+                </li>
+
+                <li className='menu__container-item nav__item'>
+
+                    <NavLink to='/generos'>
+
+                        <RiMovie2Fill />
+                        <span>Gêneros</span>
+
+                    </NavLink>
+
+                </li>
+
+            </ul>
 
         </div>
 

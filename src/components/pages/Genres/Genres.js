@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 import ErrorMessage from "../../layout/ErrorMessage";
 import Loader from "../../layout/Loader";
 import { getGenres } from '../../../lib/apiLinks';
+import useTitle from '../../layout/useTitle';
 
 const Genres = () => {
+
+    useTitle("Filmes App | Gêneros")
 
     const URL = getGenres();
 

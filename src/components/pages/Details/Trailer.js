@@ -1,13 +1,15 @@
 import './Details.css';
-import { FaPlay } from 'react-icons/fa';
-import {useFetch} from '../../../hook/useFetch';
+import { useFetch } from '../../../hook/useFetch';
 import { getTrailer } from '../../../lib/apiLinks';
+import TrailerModal from './TrailerModal';
 
-const Trailer = ({id}) => {
+const Trailer = ({ id }) => {
 
     const URL = getTrailer(id);
 
-    const {data} = useFetch(URL);
+    const { data } = useFetch(URL);
+
+    console.log(data.results)
 
     return (
 
@@ -19,12 +21,7 @@ const Trailer = ({id}) => {
 
                     <li className="trailer-item" key={item.id}>
 
-                        <a href={`https://www.youtube.com/embed/${item.key}`} target='_blank' rel='noreferrer'>
-
-                            <FaPlay />
-                            <span>Trailer {index + 1}</span>
-
-                        </a>
+                        <TrailerModal key_trailer={item.key} index_trailer={index} />
 
                     </li>
 
