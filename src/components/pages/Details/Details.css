@@ -42,10 +42,11 @@
     margin-bottom: 3rem;
     display: flex;
     align-items: center;
+    font-size: 3rem;
 }
 
 .details__vote{
-    font-size: 4rem;
+    font-size: 6rem;
     margin-right: 1.5rem;
 }
 
@@ -317,6 +318,10 @@
 
     .container__details{
         padding: 5rem 2rem;
+    }
+
+    .details__vote-c{
+        font-size: 2rem;
     }
 
 }

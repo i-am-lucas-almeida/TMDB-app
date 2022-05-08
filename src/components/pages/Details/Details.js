@@ -28,7 +28,6 @@ export default function Details() {
     useTitle(`Filmes App ${items.title ? '| ' + items.title : ''}`);
 
     const genres = items.genres;
-    const vote_average = (items.vote_average / 2);
 
     return (
 
@@ -58,12 +57,13 @@ export default function Details() {
 
                         <div className='details__vote-c'>
 
-                            <p className='details__vote'>{vote_average.toString().substring(0, 3)}</p>
+                            <p className='details__vote'>{items.vote_average && items.vote_average}</p>
 
                             <Rating
-                                initialRating={vote_average && vote_average}
+                                initialRating={items.vote_average && items.vote_average}
                                 emptySymbol={<FaRegStar />}
                                 fullSymbol={<FaStar />}
+                                stop={10}
                                 readonly
                             />
 
