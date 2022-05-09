@@ -39,3 +39,21 @@
 .color--2{
     background-color: #171E31 !important;
 }
+
+@media(max-width: 500px) {
+
+    .genres__item{
+        display: grid;
+        place-items: center;
+        margin: .5rem;
+        width: 15rem;
+        height: 12rem;
+        border-radius: 8px;
+    }
+
+    .genres__item > h3{
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+
+}

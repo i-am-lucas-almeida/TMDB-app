@@ -1,4 +1,3 @@
-import '../Movies/Movies.css';
 import { useParams } from 'react-router-dom';
 import {useState} from 'react';
 import FormSearch from '../../layout/FormSearch';
@@ -13,7 +12,7 @@ import useTitle from '../../layout/useTitle';
 
 const Movies = () => {
 
-    let [page, setPage] = useState('');
+    const [page, setPage] = useState(1);
 
     const { name, id } = useParams();
 
@@ -25,8 +24,6 @@ const Movies = () => {
 
     const totalPages = data.total_pages;
     const current_page = data.page;
-
-    page = current_page;
 
     console.log(data.results)
 
@@ -56,7 +53,7 @@ const Movies = () => {
 
                     </div>
 
-                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages} />
+                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages} page={page} />
 
                 </div>
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../../hook/useFetch";
 import { getSearch } from "../../../lib/apiLinks";
@@ -8,13 +8,13 @@ import FormSearch from '../../layout/FormSearch';
 import ErrorMessage from "../../layout/ErrorMessage";
 import Loader from '../../../components/layout/Loader';
 import Pagination from "../../layout/Pagination";
-import useTitle from '../../layout/useTitle';
+import useTitle from '../../layout/useTitle'; 
 
 const Search = () => {
 
     const { id } = useParams();
 
-    let [page, setPage] = useState('');
+    const [page, setPage] = useState(1);
 
     const URL = getSearch(id, page);
 
@@ -26,13 +26,11 @@ const Search = () => {
 
     useTitle(`Filmes App | ${id}`);
 
-    page = current_page;
-
     return (
 
         <>
 
-            <FormSearch setPage={setPage} current_page={current_page} page={page} />
+            <FormSearch setPage={setPage} current_page={current_page} />
 
             {error && <ErrorMessage />}
 
@@ -44,7 +42,7 @@ const Search = () => {
 
                     <p className='title'>Encontrados {total_results} resultados</p>
 
-                    <div className='home__container_content'>
+                    <div className='movies__container'>
 
                         {data.results && data.results.map((trend) =>
 
@@ -54,7 +52,7 @@ const Search = () => {
 
                     </div>
 
-                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages} />
+                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages} page={page} />
 
                 </div>
 

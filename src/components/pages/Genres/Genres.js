@@ -1,10 +1,12 @@
 import '../Genres/Genres.css';
-import FormSearch from "../../layout/FormSearch";
+
 import { useFetch } from "../../../hook/useFetch";
 import { Link } from "react-router-dom";
+import { getGenres } from '../../../lib/apiLinks';
+
+import FormSearch from "../../layout/FormSearch";
 import ErrorMessage from "../../layout/ErrorMessage";
 import Loader from "../../layout/Loader";
-import { getGenres } from '../../../lib/apiLinks';
 import useTitle from '../../layout/useTitle';
 
 const Genres = () => {

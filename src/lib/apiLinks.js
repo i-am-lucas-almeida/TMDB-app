@@ -36,6 +36,18 @@ export function getGenres(){
 
 }
 
+export function getUpcoming(page){
+
+    return `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=pt-BR&page=${page}`;
+
+}
+
+export function getTopRated(page) {
+
+    return `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=pt-BR&page=${page}`;
+
+}
+
 export function getDetails(id) {
 
     return `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR`;

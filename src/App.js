@@ -10,7 +10,9 @@ import Details from './components/pages/Details/Details';
 import Genres from './components/pages/Genres/Genres';
 import Search from './components/pages/Search/Search';
 import Movies from './components/pages/Movies/Movies';
+import Releases from './components/pages/Releases/Releases';
 import NotFound from './components/layout/NotFound';
+import TopRated from './components/pages/TopRated/TopRated';
 
 export default function App() {
 
@@ -31,6 +33,8 @@ export default function App() {
           <Route path='/pesquisa/:id' element={<Search/>} />
           <Route path='/generos' element={<Genres/>} />
           <Route path='/filmes/:id/:name' element={<Movies/>} />
+          <Route path='/em-breve' element={<Releases/>} />
+          <Route path='/top-tmdb' element={<TopRated/>} />
           <Route path='*' element={<NotFound/> }/>
 
         </Routes>

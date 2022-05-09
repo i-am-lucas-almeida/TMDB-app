@@ -1,13 +1,13 @@
 import './styles/Pagination.css';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-const Pagination = ({ setPage, totalPages, currentPage}) => {
+const Pagination = ({ setPage, totalPages, currentPage, page}) => {
 
     const nextPage = () => {
 
         if (currentPage < totalPages) {
 
-            setPage(currentPage + 1);
+            setPage(page + 1);
 
         }
 
@@ -17,7 +17,7 @@ const Pagination = ({ setPage, totalPages, currentPage}) => {
 
         if (currentPage > 1) {
 
-            setPage(currentPage - 1);
+            setPage(page - 1);
 
         }
 

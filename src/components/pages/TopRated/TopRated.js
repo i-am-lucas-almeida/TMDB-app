@@ -1,21 +1,23 @@
-import { useFetch } from '../../../hook/useFetch';
-import { useState } from 'react';
-import { getTrending } from '../../../lib/apiLinks';
-
-import MediaCard from '../../layout/MediaCard';
-import Pagination from '../../layout/Pagination';
+import {useState} from 'react';
 import FormSearch from '../../layout/FormSearch';
 import ErrorMessage from '../../layout/ErrorMessage';
-import Loader from '../../../components/layout/Loader';
+import Loader from '../../layout/Loader';
+import MediaCard from '../../layout/MediaCard';
+import Pagination from '../../layout/Pagination';
+
+import { useFetch } from '../../../hook/useFetch';
+import { getTopRated } from '../../../lib/apiLinks';
 import useTitle from '../../layout/useTitle';
 
-export default function Home() {
-
-    useTitle('Filmes App | Home');
+const TopRated = () => {
 
     const [page, setPage] = useState(1);
 
-    const URL = getTrending(page);
+    useTitle(`Filmes App | Top TMDB`);
+
+    const URL = getTopRated(page);
+
+    console.log(URL)
 
     const { data, error, loading } = useFetch(URL);
 
@@ -36,7 +38,7 @@ export default function Home() {
 
                 <div className='container'>
 
-                    <h1 className="title">Filmes Populares</h1>
+                    <h1 className="title">Filmes Top TMDB</h1>
 
                     <div className='movies__container'>
 
@@ -55,6 +57,9 @@ export default function Home() {
             }
 
         </>
-    )
+
+    );
 
 }
+
+export default TopRated;
