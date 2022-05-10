@@ -31,6 +31,7 @@ const Search = () => {
 
         fetchMovies(actualPage);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [actualPage]);
 
     return (
