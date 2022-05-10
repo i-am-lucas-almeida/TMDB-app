@@ -1,32 +1,39 @@
-import { useFetch } from '../../../hook/useFetch';
-import { useState } from 'react';
-import { getTrending } from '../../../lib/apiLinks';
+import { useEffect } from 'react';
+import useMovies from '../../../hook/useMovies';
+import usePagination from '../../../hook/usePagination';
 
-import MediaCard from '../../layout/MediaCard';
 import Pagination from '../../layout/Pagination';
-import FormSearch from '../../layout/FormSearch';
-import ErrorMessage from '../../layout/ErrorMessage';
-import Loader from '../../../components/layout/Loader';
+import MediaCard from '../../layout/MediaCard';
 import useTitle from '../../layout/useTitle';
 
-export default function Home() {
+import FormSearch from '../../layout/FormSearch';
+import ErrorMessage from '../../layout/ErrorMessage';
+import Loader from '../../layout/Loader';
+import { getTrending } from '../../../lib/apiLinks';
+
+const Home = () => {
 
     useTitle('Filmes App | Home');
 
-    const [page, setPage] = useState(1);
+    const { setActualPage, actualPage } = usePagination();
 
-    const URL = getTrending(page);
+    const URL = getTrending(actualPage);
 
-    const { data, error, loading } = useFetch(URL);
+    const { data, error, loading, fetchMovies } = useMovies(URL);
 
     const totalPages = data.total_pages;
-    const current_page = data.page;
+
+    useEffect(() => {
+
+        fetchMovies(actualPage);
+
+    }, [actualPage]);
 
     return (
 
         <>
 
-            <FormSearch setPage={setPage} current_page={current_page} />
+            <FormSearch/>
 
             {error && <ErrorMessage />}
 
@@ -48,7 +55,7 @@ export default function Home() {
 
                     </div>
 
-                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages} page={page} />
+                    <Pagination setActualPage={setActualPage} currentPage={actualPage} totalPages={totalPages} />
 
                 </div>
 
@@ -58,3 +65,5 @@ export default function Home() {
     )
 
 }
+
+export default Home;

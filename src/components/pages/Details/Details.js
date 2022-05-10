@@ -13,6 +13,7 @@ import Loader from '../../../components/layout/Loader';
 import ErrorMessage from '../../layout/ErrorMessage';
 import { getDetails, getImageDefault, getImages } from '../../../lib/apiLinks';
 import useTitle from '../../layout/useTitle';
+import FormatNumeral from '../../layout/FormatNumeral';
 
 export default function Details() {
 
@@ -45,7 +46,7 @@ export default function Details() {
 
                     <div className='container__details_poster'>
 
-                        <img src={items.poster_path ? (IMG_API + items.poster_path) : IMG_DEF} alt={items.title && items.title} />                        
+                        <img src={items.poster_path ? (IMG_API + items.poster_path) : IMG_DEF} alt={items.title && items.title} />
 
                     </div>
 
@@ -74,14 +75,38 @@ export default function Details() {
                             <aside>
 
                                 <h3>Duração</h3>
-                                <p>{items.runtime ? `${items.runtime}${' min.'}` : ''}</p>
+                                <p>{items.runtime && `${items.runtime}${' min.'}`}</p>
 
                             </aside>
 
                             <aside>
 
                                 <h3>Lançamento</h3>
-                                <p>{items.release_date ? items.release_date.substring(0, 4) : '????'}</p>
+                                <p>{items.release_date && items.release_date.substring(0, 4)}</p>
+
+                            </aside>
+
+                            <aside>
+
+                                <h3>Orçamento</h3>
+                                <p className='details__info-revenue'>
+                                    {items.budget &&
+                                        <FormatNumeral format='0.0 a' text='US$ '>
+                                            {items.budget}
+                                        </FormatNumeral>}
+                                </p>
+
+                            </aside>
+
+                            <aside>
+
+                                <h3>Bilheteria</h3>
+                                <p className='details__info-revenue'>
+                                    {items.revenue &&
+                                        <FormatNumeral format='0.0 a' text='US$ '>
+                                            {items.revenue}
+                                        </FormatNumeral>}
+                                </p>
 
                             </aside>
 

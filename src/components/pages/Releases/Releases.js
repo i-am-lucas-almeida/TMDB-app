@@ -1,32 +1,40 @@
-import {useState} from 'react';
+import { useEffect } from 'react';
+
+import useMovies from '../../../hook/useMovies';
+import usePagination from '../../../hook/usePagination';
+
 import FormSearch from '../../layout/FormSearch';
 import ErrorMessage from '../../layout/ErrorMessage';
 import Loader from '../../layout/Loader';
 import MediaCard from '../../layout/MediaCard';
 import Pagination from '../../layout/Pagination';
 
-import { useFetch } from '../../../hook/useFetch';
 import { getUpcoming } from '../../../lib/apiLinks';
 import useTitle from '../../layout/useTitle';
 
 const Releases = () => {
 
-    const [page, setPage] = useState(1);
-
     useTitle(`Filmes App | Em breve`);
 
-    const URL = getUpcoming(page);
+    const { setActualPage, actualPage } = usePagination();
 
-    const { data, error, loading } = useFetch(URL);
+    const URL = getUpcoming(actualPage);
+
+    const { data, error, loading, fetchMovies } = useMovies(URL);
 
     const totalPages = data.total_pages;
-    const current_page = data.page;
+
+    useEffect(() => {
+
+        fetchMovies(actualPage);
+
+    }, [actualPage]);
 
     return (
 
         <>
 
-            <FormSearch setPage={setPage} current_page={current_page} />
+            <FormSearch />
 
             {error && <ErrorMessage />}
 
@@ -48,7 +56,7 @@ const Releases = () => {
 
                     </div>
 
-                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages} page={page} />
+                    <Pagination setActualPage={setActualPage} currentPage={actualPage} totalPages={totalPages} />
 
                 </div>
 

@@ -1,36 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import { useFetch } from "../../../hook/useFetch";
 import { getSearch } from "../../../lib/apiLinks";
 
+import useMovies from '../../../hook/useMovies';
+import usePagination from '../../../hook/usePagination';
 import MediaCard from "../../layout/MediaCard";
 import FormSearch from '../../layout/FormSearch';
 import ErrorMessage from "../../layout/ErrorMessage";
 import Loader from '../../../components/layout/Loader';
 import Pagination from "../../layout/Pagination";
-import useTitle from '../../layout/useTitle'; 
+import useTitle from '../../layout/useTitle';
+import FormatNumeral from '../../layout/FormatNumeral';
 
 const Search = () => {
 
     const { id } = useParams();
 
-    const [page, setPage] = useState(1);
-
-    const URL = getSearch(id, page);
-
-    const { data, error, loading } = useFetch(URL);
-
-    const total_results = data.total_results;
-    const totalPages = data.total_pages;
-    const current_page = data.page;
-
     useTitle(`Filmes App | ${id}`);
+
+    const { setActualPage, actualPage } = usePagination();
+
+    const URL = getSearch(id, actualPage);
+
+    const { data, error, loading, fetchMovies } = useMovies(URL);
+
+    const totalPages = data.total_pages;
+    const totalResults = data.total_results;
+
+    useEffect(() => {
+
+        fetchMovies(actualPage);
+
+    }, [actualPage]);
 
     return (
 
         <>
 
-            <FormSearch setPage={setPage} current_page={current_page} />
+            <FormSearch />
 
             {error && <ErrorMessage />}
 
@@ -40,7 +47,9 @@ const Search = () => {
 
                 <div className='container'>
 
-                    <p className='title'>Encontrados {total_results} resultados</p>
+                    <p className='title'>
+                        Encontrados <FormatNumeral text='' format='0,0'>{totalResults}</FormatNumeral> resultados
+                    </p>
 
                     <div className='movies__container'>
 
@@ -52,7 +61,7 @@ const Search = () => {
 
                     </div>
 
-                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages} page={page} />
+                    <Pagination setActualPage={setActualPage} currentPage={actualPage} totalPages={totalPages} />
 
                 </div>
 

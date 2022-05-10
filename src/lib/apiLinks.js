@@ -20,7 +20,7 @@ export function getTrending(page){
 
 export function getMovies(id, page){
 
-    return `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&page=${page}&with_genres=${id}`;
+    return `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&with_genres=${id}&page=${page}`;
 
 }
 

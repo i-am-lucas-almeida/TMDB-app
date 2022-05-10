@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './styles/FormSearch.css';
 import ImageSearch from '../../assets/icon-search.svg';
 
-const FormSearch = ({ setPage, current_page }) => {
+const FormSearch = () => {
 
     const [search, setSearch] = useState('');
 
@@ -26,7 +26,7 @@ const FormSearch = ({ setPage, current_page }) => {
 
                 {search ?
 
-                    <Link to={`/pesquisa/${search}`} className='btn-search' onClick={() => setPage(current_page === 1)}>
+                    <Link to={`/pesquisa/${search}`} className='btn-search'>
 
                         Buscar
 
@@ -35,7 +35,7 @@ const FormSearch = ({ setPage, current_page }) => {
                     :
 
                     <span className='btn-search'>Buscar</span>
-                    
+
                 }
 
             </form>

@@ -17,8 +17,6 @@ const Genres = () => {
 
     const { data, error, loading } = useFetch(URL);
 
-    console.log(data)
-
     return (
 
         <>

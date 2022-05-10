@@ -33,26 +33,30 @@
 
 .details__sub{
     margin-bottom: 3rem;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 300;
     color: var(--soft-gray);
 }
 
 .details__vote-c{
+    color: var(--yellow);
     margin-bottom: 3rem;
     display: flex;
     align-items: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .details__vote{
+    color: var(--white);
     font-size: 6rem;
     margin-right: 1.5rem;
 }
 
 .details__info{
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .details__info > aside{
@@ -70,6 +74,10 @@
     font-weight: 600;
 }
 
+.details__info-revenue{
+    text-transform: uppercase;
+}
+
 .details__genres > h3, .details__synopsis > h3{
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -79,14 +87,14 @@
 .details__genres > ul{
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .details__genres-item{
     background-color: var(--white);
     color: var(--dark-blue);
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-top: 1rem;
     margin-right: 1rem;
     padding: .5rem 1rem;
@@ -110,15 +118,15 @@
     border-radius: 5px;
     margin: .5rem 0;
     margin-right: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 .details__synopsis{
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .details__overview{
-    font-size: 1.8rem;
+    font-size: 2rem;
     line-height: 3rem;
     margin-bottom: 1rem;
 }
@@ -172,7 +180,7 @@
 .button__trailer{
     background-color: var(--soft-blue);
     color: var(--white);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 500;
     font-family: inherit;
     padding: 1rem 2rem;
@@ -322,6 +330,11 @@
 
     .details__vote-c{
         font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .details__info > aside{
+        margin-top: 2.5rem;
     }
 
 }

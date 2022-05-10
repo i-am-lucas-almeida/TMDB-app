@@ -99,12 +99,12 @@
 
     .nav__item {
         margin-left: 0;
-        margin: 2rem 0;
+        margin: 3rem 0;
         transition: .3s;
     }
 
     .show--modal{
-        height: 25rem !important;
+        height: 30rem !important;
     }
 
 }

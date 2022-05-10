@@ -9,8 +9,6 @@ const Trailer = ({ id }) => {
 
     const { data } = useFetch(URL);
 
-    console.log(data.results)
-
     return (
 
         <>

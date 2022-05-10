@@ -1,37 +1,42 @@
+import useMovies from '../../../hook/useMovies';
+import usePagination from '../../../hook/usePagination';
+
 import { useParams } from 'react-router-dom';
-import {useState} from 'react';
+import {useEffect} from 'react';
 import FormSearch from '../../layout/FormSearch';
 import ErrorMessage from '../../layout/ErrorMessage';
 import Loader from '../../layout/Loader';
 import MediaCard from '../../layout/MediaCard';
 import Pagination from '../../layout/Pagination';
 
-import { useFetch } from '../../../hook/useFetch';
 import { getMovies } from '../../../lib/apiLinks';
 import useTitle from '../../layout/useTitle';
 
 const Movies = () => {
 
-    const [page, setPage] = useState(1);
-
     const { name, id } = useParams();
 
     useTitle(`Filmes App | ${name}`)
 
-    const URL = getMovies(id, page);
+    const { setActualPage, actualPage } = usePagination();
 
-    const { data, error, loading } = useFetch(URL);
+    const URL = getMovies(id, actualPage);
+
+    const { data, error, loading, fetchMovies } = useMovies(URL);
 
     const totalPages = data.total_pages;
-    const current_page = data.page;
 
-    console.log(data.results)
+    useEffect(() => {
+
+        fetchMovies(actualPage);
+
+    }, [actualPage]);
 
     return (
 
         <>
 
-            <FormSearch setPage={setPage} current_page={current_page} />
+            <FormSearch />
 
             {error && <ErrorMessage />}
 
@@ -53,7 +58,7 @@ const Movies = () => {
 
                     </div>
 
-                    <Pagination setPage={setPage} currentPage={current_page} totalPages={totalPages} page={page} />
+                    <Pagination setActualPage={setActualPage} currentPage={actualPage} totalPages={totalPages} />
 
                 </div>
 
