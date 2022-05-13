@@ -30,7 +30,8 @@ const Search = () => {
     useEffect(() => {
 
         fetchMovies(URL);
-
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [URL]);
 
     useEffect(() => {

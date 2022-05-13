@@ -28,6 +28,7 @@ const Releases = () => {
 
         fetchMovies(URL);
 
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [URL]);
 
     return (
