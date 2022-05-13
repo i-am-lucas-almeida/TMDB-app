@@ -1,25 +1,14 @@
 import './styles/Pagination.css';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-const Pagination = ({ totalPages, currentPage, setActualPage }) => {
+const Pagination = ({ currentPage, totalPages, setActualPage }) => {
 
-    const prevPage = () => {
+    const MAX_ITEMS = 9;
+    const MAX_LEFT = (MAX_ITEMS - 1) / 2;
+    const FIRST_PAGE = Math.max(currentPage - MAX_LEFT, 1);
 
-        if(currentPage > 1) {
+    const numeralPage = (page) => {
 
-            setActualPage(currentPage - 1);
-
-        }
-
-    }
-
-    const nextPage = () => {
-
-        if(currentPage < totalPages) {
-
-            setActualPage(currentPage + 1);
-
-        }
+        setActualPage((currentPage - currentPage) + page);
 
     }
 
@@ -29,15 +18,26 @@ const Pagination = ({ totalPages, currentPage, setActualPage }) => {
 
             <div className="pagination__c">
 
-                <button onClick={prevPage} className='btn-prev'>
-                    <FaArrowLeft />
-                </button>
+                <ul className='pagination__numeral'>
 
-                <p className='pagination__info'>{`Página ${currentPage} de ${totalPages}`}</p>
+                    {Array.from({ length: Math.min(MAX_ITEMS, totalPages) })
 
-                <button onClick={nextPage} className='btn-next'>
-                    <FaArrowRight />
-                </button>
+                        .map((_, index) => index + FIRST_PAGE)
+                        .map((page, index) => (
+
+                            <li key={index}>
+
+                                <button onClick={() => numeralPage(page)} className={`button__pagination ${page === currentPage && 'button__pagination--active'}`}>
+                                    {page}
+                                </button>
+
+                            </li>
+
+                        ))
+
+                    }
+
+                </ul>
 
             </div>
 

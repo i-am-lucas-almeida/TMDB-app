@@ -26,9 +26,9 @@ const Releases = () => {
 
     useEffect(() => {
 
-        fetchMovies(actualPage);
+        fetchMovies(URL);
 
-    }, [actualPage]);
+    }, [URL]);
 
     return (
 

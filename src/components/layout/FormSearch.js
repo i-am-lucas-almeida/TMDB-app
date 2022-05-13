@@ -20,23 +20,15 @@ const FormSearch = () => {
 
             <form className='form__container'>
 
-                <img src={ImageSearch} alt='icon search' className='search__icon' />
+                <img src={ImageSearch} alt='ícone de pesquisa' className='search__icon' />
 
                 <input type='search' name={search} className='search__input' placeholder='Pesquise por filmes...' onChange={handleOnChange} value={search} />
 
-                {search ?
+                <Link to={search && `/pesquisa/${search}`} className='btn-search'>
 
-                    <Link to={`/pesquisa/${search}`} className='btn-search'>
+                    Buscar
 
-                        Buscar
-
-                    </Link>
-
-                    :
-
-                    <span className='btn-search'>Buscar</span>
-
-                }
+                </Link>
 
             </form>
 

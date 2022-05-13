@@ -29,9 +29,15 @@ const Search = () => {
 
     useEffect(() => {
 
-        fetchMovies(actualPage);
+        fetchMovies(URL);
 
-    }, [actualPage]);
+    }, [URL]);
+
+    useEffect(() => {
+
+        setActualPage(1);
+
+    }, [setActualPage, id]);
 
     return (
 

@@ -28,9 +28,9 @@ const Movies = () => {
 
     useEffect(() => {
 
-        fetchMovies(actualPage);
+        fetchMovies(URL);
 
-    }, [actualPage]);
+    }, [URL]);
 
     return (
 

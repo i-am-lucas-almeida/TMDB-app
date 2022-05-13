@@ -26,9 +26,9 @@ const TopRated = () => {
 
     useEffect(() => {
 
-        fetchMovies(actualPage);
+        fetchMovies(URL);
 
-    }, [actualPage]);
+    }, [URL]);
 
     return (
 
