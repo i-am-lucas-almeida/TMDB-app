@@ -1,14 +1,9 @@
-# Filmes App 🎥
-
-Repositório usado para hospedar o site Filmes App
-
-
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { getSearch } from "../../lib/apiLinks";
 import Footer from '../../components/layout/Footer';
 
-import useMovies from '../../hook/useMovies';
+import { useFetch } from '../../hook/useFetch';
 import usePagination from '../../hook/usePagination';
 import MediaCard from "../../components/layout/MediaCard";
 import FormSearch from '../../components/layout/FormSearch';
@@ -28,16 +23,10 @@ const Search = () => {
 
     const URL = getSearch(id, actualPage);
 
-    const { data, error, loading, fetchMovies } = useMovies(URL);
+    const { data, error, loading } = useFetch(URL);
 
     const totalPages = data.total_pages;
     const totalResults = data.total_results;
-
-    useEffect(() => {
-
-        fetchMovies(URL);
-
-    }, [URL]);
 
     useEffect(() => {
 
@@ -62,7 +51,11 @@ const Search = () => {
                     <div className='container'>
 
                         <p className='title'>
-                            Encontrados <FormatNumeral text='' format='0,0'>{totalResults}</FormatNumeral> resultados
+                            Encontrados&nbsp;
+                            <FormatNumeral text='' format='0,0'>
+                                {totalResults}
+                            </FormatNumeral>
+                            &nbsp;resultados para {`"${id}"`}
                         </p>
 
                         <div className='movies__container'>
@@ -75,7 +68,11 @@ const Search = () => {
 
                         </div>
 
-                        <Pagination setActualPage={setActualPage} currentPage={actualPage} totalPages={totalPages} />
+                        <Pagination
+                            setActualPage={setActualPage}
+                            currentPage={actualPage}
+                            totalPages={totalPages}
+                        />
 
                     </div>
 

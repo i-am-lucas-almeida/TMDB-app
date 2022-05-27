@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './styles/FormSearch.css';
+import '../styles/FormSearch.css';
 import ImageSearch from '../../assets/icon-search.svg';
 
 const FormSearch = () => {

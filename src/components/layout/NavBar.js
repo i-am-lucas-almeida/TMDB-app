@@ -1,15 +1,21 @@
-import './styles/NavBar.css';
-import {useState} from 'react';
+import '../styles/NavBar.css';
+import { useState } from 'react';
 import iconLogo from '../../assets/logo.svg';
 import { NavLink, Link } from 'react-router-dom';
 import { RiMovie2Fill } from 'react-icons/ri';
-import {MdLocalMovies} from 'react-icons/md';
-import {IoIosPodium} from 'react-icons/io';
-import {FiMenu} from 'react-icons/fi';
+import { MdLocalMovies } from 'react-icons/md';
+import { IoIosPodium } from 'react-icons/io';
+import { FiMenu } from 'react-icons/fi';
 
 export default function NavBar() {
 
     const [modal, setModal] = useState(false);
+
+    function closeModal() {
+
+        setModal(false);
+
+    }
 
     return (
 
@@ -31,24 +37,30 @@ export default function NavBar() {
 
                 <li className='icon__menu' onClick={() => setModal(!modal)}>
 
-                    <FiMenu/>
+                    <FiMenu />
 
                 </li>
 
                 <div className={`menu__mobile`}>
 
-                    <li className='menu__container-item nav__item'>
+                    <li
+                        className='menu__container-item nav__item'
+                        onClick={closeModal}
+                    >
 
                         <NavLink to='/em-breve'>
 
-                            <MdLocalMovies/>
+                            <MdLocalMovies />
                             <span>Lançamentos</span>
 
                         </NavLink>
 
                     </li>
 
-                    <li className='menu__container-item nav__item'>
+                    <li
+                        className='menu__container-item nav__item'
+                        onClick={closeModal}
+                    >
 
                         <NavLink to='/generos'>
 
@@ -59,7 +71,10 @@ export default function NavBar() {
 
                     </li>
 
-                    <li className='menu__container-item nav__item'>
+                    <li
+                        className='menu__container-item nav__item'
+                        onClick={closeModal}
+                    >
 
                         <NavLink to='/top-tmdb'>
 

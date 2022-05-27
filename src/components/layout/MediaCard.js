@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../layout/styles/MediaCard.css';
+import '../styles/MediaCard.css';
 import iconStar from '../../assets/star-solid.svg';
 import { getImageDefault, getImages } from '../../lib/apiLinks';
 

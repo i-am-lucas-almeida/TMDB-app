@@ -1,13 +1,17 @@
-import './styles/Loader.css';
+import '../styles/Loader.css';
 
 const Loader = () => {
 
     return (
 
-        <div className="loader"></div>
+        <div className="loader__c">
+
+            <div className="loader"></div>
+
+        </div>
 
     );
 
 }
- 
+
 export default Loader;

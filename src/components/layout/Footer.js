@@ -1,4 +1,4 @@
-import './styles/Footer.css';
+import '../styles/Footer.css';
 import iconTmdb from '../../assets/icon-tmdb-long.svg';
 
 const Footer = () => {

@@ -1,0 +1,18 @@
+@import '../../styles/variables.css';
+
+footer{
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1440px;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.small{
+    color: var(--soft-gray);
+}
+
+.logo-tmdb{
+    margin-top: 8px;
+    width: 18rem;
+}
