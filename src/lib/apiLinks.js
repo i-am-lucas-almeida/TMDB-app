@@ -12,13 +12,13 @@ export function getImageDefault() {
 
 }
 
-export function getTrending(page){
+export function getTrending(page) {
 
     return `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=${page}`;
 
 }
 
-export function getMovies(id, page){
+export function getMovies(id, page) {
 
     return `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&with_genres=${id}&page=${page}`;
 
@@ -30,13 +30,13 @@ export function getSearch(id, page) {
 
 }
 
-export function getGenres(){
+export function getGenres() {
 
     return `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=pt-BR`;
 
 }
 
-export function getUpcoming(page){
+export function getUpcoming(page) {
 
     return `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=pt-BR&page=${page}`;
 

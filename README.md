@@ -43,7 +43,7 @@ Estou sempre aberto a ideias e sugestões então, por favor, deixe-me saber se v
 Ao clonar o projeto se atente as instruções:
 
 1. Crie uma chave para a api em [The Movie Database(TMDB)](https://developers.themoviedb.org/3);
-2. Cole sua chave de api na variável `REACT_APP_API_KEY` no arquivo `.env`.
+2. Cole sua chave de api na variável `REACT_APP_API_KEY` no arquivo `.env.example`;
 
 ## Links
 
