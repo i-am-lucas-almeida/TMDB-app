@@ -1,14 +1,28 @@
 import styles from "../styles/components/Pagination.module.css";
 
+import { TiArrowLeftThick, TiArrowRightThick } from "react-icons/ti";
+
 const Pagination = ({ currentPage, totalPages, setActualPage }) => {
 
-    const MAX_ITEMS = 9;
+    const MAX_ITEMS = 5;
     const MAX_LEFT = (MAX_ITEMS - 1) / 2;
     const FIRST_PAGE = Math.max(currentPage - MAX_LEFT, 1);
 
     const numeralPage = (page) => {
 
         setActualPage((currentPage - currentPage) + page);
+
+    };
+
+    const nextPage = () => {
+
+        setActualPage(currentPage + 1);
+
+    };
+
+    const prevPage = () => {
+
+        setActualPage(currentPage - 1);
 
     };
 
@@ -19,6 +33,21 @@ const Pagination = ({ currentPage, totalPages, setActualPage }) => {
             <div className={styles.pagination__c}>
 
                 <ul className={styles.pagination__numeral}>
+
+                    {
+                        currentPage > 1 &&
+
+                        <li>
+                            <button
+                                className={styles.button__pagination}
+                                onClick={prevPage}>
+
+                                <TiArrowLeftThick />
+                                <span>Ant.</span>
+
+                            </button>
+                        </li>
+                    }
 
                     {Array.from({ length: Math.min(MAX_ITEMS, totalPages) })
 
@@ -35,6 +64,21 @@ const Pagination = ({ currentPage, totalPages, setActualPage }) => {
 
                         ))
 
+                    }
+
+                    {
+                        totalPages !== currentPage &&
+
+                        <li>
+                            <button
+                                className={styles.button__pagination}
+                                onClick={nextPage}>
+
+                                <span>Próx.</span>
+                                <TiArrowRightThick />
+
+                            </button>
+                        </li>
                     }
 
                 </ul>

@@ -49,7 +49,7 @@ a {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 2rem;
-    row-gap: 3rem;
+    row-gap: 3.5rem;
 }
 
 @media(max-width: 1000px) {

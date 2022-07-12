@@ -29,6 +29,7 @@
     font-size: 2.2rem;
     margin-left: 5rem;
     transition: .3s;
+    position: relative;
 }
 
 .logo {
@@ -50,6 +51,26 @@
 
 .menu__container_item>a>span {
     padding-left: .5rem;
+}
+
+.menu__container_pop {
+    min-width: 6rem;
+    background-color: var(--soft-gray);
+    padding: .5rem;
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.menu__container_item:hover>.menu__container_pop {
+    opacity: 1;
 }
 
 .avatar {

@@ -29,6 +29,8 @@ const Movies = () => {
 
     const totalPages = data.total_pages;
 
+    console.log(data);
+
     return (
 
         <>

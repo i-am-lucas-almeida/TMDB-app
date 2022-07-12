@@ -21,12 +21,17 @@
     color: var(--white);
     margin: .5rem;
     padding: .5rem 1.5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
     font-family: inherit;
     cursor: pointer;
     border: 1.5px solid var(--soft-gray);
     border-radius: 5px;
     transition: .3s;
+}
+
+.button__pagination>span {
+    padding: 0 .5rem;
 }
 
 .button__pagination_active,

@@ -22,9 +22,8 @@ export const useFetch = (url) => {
 
                 setLoading(false);
 
-            } catch(error) {
+            } catch (error) {
 
-                console.log(error.message);
                 setError(true);
 
             }

@@ -9,7 +9,7 @@
 }
 
 .genres__item {
-    background-color: #0E7490 !important;
+    background-color: #0E7490;
     display: grid;
     place-items: center;
     width: 100%;
@@ -19,6 +19,7 @@
 }
 
 .genres__item:hover {
+    background-color: #168aaa;
     transform: scale(1.02);
 }
 
