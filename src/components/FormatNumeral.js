@@ -1,5 +1,5 @@
-import React from 'react';
-import numeral from 'numeral';
+import React from "react";
+import numeral from "numeral";
 
 const FormatNumeral = ({ format, children, text }) => {
 
@@ -16,6 +16,6 @@ const FormatNumeral = ({ format, children, text }) => {
         </>
 
     );
-}
+};
 
 export default FormatNumeral;

@@ -1,0 +1,43 @@
+@import "../variables.css";
+
+.category__container {
+    margin-bottom: 8rem;
+}
+
+.category__header {
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category__title {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.category__button {
+    background-color: var(--white);
+    color: var(--dark-blue);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.category__button:hover {
+    background-color: var(--soft-blue);
+    color: var(--white);
+}
+
+@media(max-width: 600px) {
+
+    .category__title {
+        font-size: 2.5rem;
+    }
+
+}

@@ -1,4 +1,4 @@
-import '../styles/Pagination.css';
+import styles from "../styles/components/Pagination.module.css";
 
 const Pagination = ({ currentPage, totalPages, setActualPage }) => {
 
@@ -10,15 +10,15 @@ const Pagination = ({ currentPage, totalPages, setActualPage }) => {
 
         setActualPage((currentPage - currentPage) + page);
 
-    }
+    };
 
     return (
 
         <>
 
-            <div className="pagination__c">
+            <div className={styles.pagination__c}>
 
-                <ul className='pagination__numeral'>
+                <ul className={styles.pagination__numeral}>
 
                     {Array.from({ length: Math.min(MAX_ITEMS, totalPages) })
 
@@ -27,7 +27,7 @@ const Pagination = ({ currentPage, totalPages, setActualPage }) => {
 
                             <li key={index}>
 
-                                <button onClick={() => numeralPage(page)} className={`button__pagination ${page === currentPage && 'button__pagination--active'}`}>
+                                <button onClick={() => numeralPage(page)} className={`${styles.button__pagination} ${page === currentPage && styles.button__pagination_active}`}>
                                     {page}
                                 </button>
 
@@ -44,6 +44,6 @@ const Pagination = ({ currentPage, totalPages, setActualPage }) => {
         </>
 
     );
-}
+};
 
 export default Pagination;

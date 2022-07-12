@@ -1,20 +1,15 @@
+/* eslint-disable no-undef */
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 export function getImages() {
 
-    return 'https://image.tmdb.org/t/p/w1280';
+    return "https://image.tmdb.org/t/p/w1280";
 
 }
 
 export function getImageDefault() {
 
-    return 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80';
-
-}
-
-export function getTrending(page) {
-
-    return `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=${page}`;
+    return "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80";
 
 }
 
@@ -36,15 +31,9 @@ export function getGenres() {
 
 }
 
-export function getUpcoming(page) {
+export function getMovieCategory(page, type) {
 
-    return `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=pt-BR&page=${page}`;
-
-}
-
-export function getTopRated(page) {
-
-    return `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=pt-BR&page=${page}`;
+    return `https://api.themoviedb.org/3/movie/${type}?api_key=${API_KEY}&language=pt-BR&page=${page}`;
 
 }
 

@@ -1,27 +1,12 @@
-import { useFetch } from '../../hook/useFetch';
-import usePagination from '../../hook/usePagination';
-import Footer from '../../components/layout/Footer';
-
-import Pagination from '../../components/layout/Pagination';
-import MediaCard from '../../components/layout/MediaCard';
-import useTitle from '../../components/layout/useTitle';
-
-import FormSearch from '../../components/layout/FormSearch';
-import ErrorMessage from '../../components/layout/ErrorMessage';
-import Loader from '../../components/layout/Loader';
-import { getTrending } from '../../lib/apiLinks';
+import FormSearch from "../../components/FormSearch";
+import Container from "../../components/Container";
+import MovieCategory from "../../components/MovieCategory";
+import useTitle from "../../utils/useTitle";
+import Footer from "../../components/Footer";
 
 const Home = () => {
 
-    useTitle('Filmes App | Página Principal');
-
-    const { setActualPage, actualPage } = usePagination();
-
-    const URL = getTrending(actualPage);
-
-    const { data, error, loading } = useFetch(URL);
-
-    const totalPages = data.total_pages;
+    useTitle("Filmes Flix | Página Principal");
 
     return (
 
@@ -29,45 +14,34 @@ const Home = () => {
 
             <FormSearch />
 
-            {error && <ErrorMessage />}
+            <Container>
 
-            {loading && <Loader />}
+                <MovieCategory
+                    title="Lançamentos"
+                    category="upcoming"
+                    slug="upcoming"
+                />
 
-            {!loading &&
+                <MovieCategory
+                    title="Populares"
+                    category="popular"
+                    slug="popular"
+                />
 
-                <>
+                <MovieCategory
+                    title="Top TMDB"
+                    category="top_rated"
+                    slug="top_rated"
+                />
 
-                    <div className='container'>
+            </Container>
 
-                        <h1 className="title">Filmes Populares</h1>
-
-                        <div className='movies__container'>
-
-                            {data.results && data.results.map((item) =>
-
-                                <MediaCard key={item.id} {...item} />
-
-                            )}
-
-                        </div>
-
-                        <Pagination
-                            setActualPage={setActualPage}
-                            currentPage={actualPage}
-                            totalPages={totalPages}
-                        />
-
-                    </div>
-
-                    <Footer />
-
-                </>
-
-            }
+            <Footer />
 
         </>
-    )
 
-}
+    );
+
+};
 
 export default Home;

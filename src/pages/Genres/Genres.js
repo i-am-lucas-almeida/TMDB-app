@@ -1,18 +1,19 @@
-import '../Genres/Genres.css';
-import Footer from '../../components/layout/Footer';
+import styles from "../../styles/pages/Genres.module.css";
 
-import { useFetch } from '../../hook/useFetch';
+import { useFetch } from "../../hook/useFetch";
 import { Link } from "react-router-dom";
-import { getGenres } from '../../lib/apiLinks';
+import { getGenres } from "../../lib/apiLinks";
 
-import FormSearch from "../../components/layout/FormSearch";
-import ErrorMessage from "../../components/layout/ErrorMessage";
-import Loader from "../../components/layout/Loader";
-import useTitle from '../../components/layout/useTitle';
+import Container from "../../components/Container";
+import FormSearch from "../../components/FormSearch";
+import ErrorMessage from "../../components/ErrorMessage";
+import Loader from "../../components/Loader";
+import useTitle from "../../utils/useTitle";
+import Footer from "../../components/Footer";
 
 const Genres = () => {
 
-    useTitle("Filmes App | Gêneros")
+    useTitle("Filmes Flix | Gêneros");
 
     const URL = getGenres();
 
@@ -32,11 +33,11 @@ const Genres = () => {
 
                 <>
 
-                    <div className="container">
+                    <Container>
 
-                        <ul className="genres__container">
+                        <ul className={styles.genres__container}>
 
-                            {data.genres && data.genres.map((item, index) =>
+                            {data.genres && data.genres.map((item) =>
 
                                 <li key={item.id}>
 
@@ -44,7 +45,7 @@ const Genres = () => {
 
                                         <Link to={`/filmes/${item.id}/${item.name}`}>
 
-                                            <div className={`genres__item ${index % 2 === 0 ? 'color--1' : 'color--2'}`}>
+                                            <div className={styles.genres__item}>
 
                                                 <h3>{item.name}</h3>
 
@@ -60,7 +61,7 @@ const Genres = () => {
 
                         </ul>
 
-                    </div>
+                    </Container>
 
                     <Footer />
 
@@ -72,6 +73,6 @@ const Genres = () => {
 
     );
 
-}
+};
 
 export default Genres;

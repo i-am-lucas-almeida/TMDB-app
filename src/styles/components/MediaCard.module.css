@@ -1,0 +1,47 @@
+@import '../variables.css';
+
+.media__container_card {
+    width: 100%;
+    transition: .3s;
+}
+
+.media__container_card:hover {
+    transform: scale(1.02);
+}
+
+.media__image {
+    margin-bottom: .5rem;
+    border-radius: 10px;
+    width: 100%;
+    height: 15rem;
+    transition: .3s;
+}
+
+.media__container_vote {
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.media__container_vote>img {
+    width: 2rem;
+    margin-right: 5px;
+}
+
+.media__vote {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.media__title {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+@media(max-width: 600px) {
+
+    .media__title {
+        font-size: 1.6rem;
+    }
+
+}

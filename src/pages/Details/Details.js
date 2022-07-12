@@ -1,22 +1,24 @@
-import '../Details/Details.css';
-import Footer from '../../components/layout/Footer';
+import styles from "../../styles/pages/Details.module.css";
 
-import { useFetch } from '../../hook/useFetch';
+import Rating from "react-rating";
+import { Link } from "react-router-dom";
+
+import { useFetch } from "../../hook/useFetch";
+import { getDetails, getImageDefault, getImages } from "../../lib/apiLinks";
 import { useParams } from "react-router-dom";
-import { FaRegStar, FaStar } from 'react-icons/fa';
+import { FaRegStar, FaStar } from "react-icons/fa";
 
-import Rating from 'react-rating';
+import Container from "../../components/Container";
+import FormSearch from "../../components/FormSearch";
+import Loader from "../../components/Loader";
+import ErrorMessage from "../../components/ErrorMessage";
+import useTitle from "../../utils/useTitle";
+import FormatNumeral from "../../components/FormatNumeral";
+import Footer from "../../components/Footer";
 
-import FormSearch from '../../components/layout/FormSearch';
-import Trailer from './Trailer';
-import Casting from './Casting';
-import Synopsis from './Synopsis';
-
-import Loader from '../../components/layout/Loader';
-import ErrorMessage from '../../components/layout/ErrorMessage';
-import { getDetails, getImageDefault, getImages } from '../../lib/apiLinks';
-import useTitle from '../../components/layout/useTitle';
-import FormatNumeral from '../../components/layout/FormatNumeral';
+import Trailer from "./Trailer";
+import Casting from "./Casting";
+import Synopsis from "./Synopsis";
 
 export default function Details() {
 
@@ -29,7 +31,7 @@ export default function Details() {
 
     const { data: items, loading, error } = useFetch(URL);
 
-    useTitle(`Filmes App ${items.title ? '| ' + items.title : ''}`);
+    useTitle(`${items.title ? items.title + " | " : ""}Filmes Flix `);
 
     const genres = items.genres;
 
@@ -45,123 +47,134 @@ export default function Details() {
 
                 <>
 
-
                     <FormSearch />
 
-                    <div className='container__details'>
+                    <Container>
 
-                        <div className='container__details_poster'>
+                        <div className={styles.container__details}>
 
-                            <img src={items.poster_path ? (IMG_API + items.poster_path) : IMG_DEF} alt={items.title && items.title} />
+                            <div className={styles.container__details_poster}>
+
+                                <img src={items.poster_path ? (IMG_API + items.poster_path) : IMG_DEF} alt={items.title && items.title} />
+
+                            </div>
+
+                            <div className={styles.container__details_info}>
+
+                                <h1 className={styles.details__title}>
+                                    {items.title && items.title}
+                                </h1>
+
+                                <p className={styles.details__sub}>
+                                    {items.tagline && items.tagline}
+                                </p>
+
+                                <div className={styles.details__vote_c}>
+
+                                    <p className={styles.details__vote}>
+                                        {items.vote_average && items.vote_average}
+                                    </p>
+
+                                    <Rating
+                                        initialRating={items.vote_average && items.vote_average}
+                                        emptySymbol={<FaRegStar />}
+                                        fullSymbol={<FaStar />}
+                                        stop={10}
+                                        readonly
+                                    />
+
+                                </div>
+
+                                <div className={styles.details__info}>
+
+                                    <aside>
+
+                                        <h3>Duração</h3>
+
+                                        <p>
+                                            {items.runtime && `${items.runtime}${" min."}`}
+                                        </p>
+
+                                    </aside>
+
+                                    <aside>
+
+                                        <h3>Lançamento</h3>
+
+                                        <p>
+                                            {items.release_date && items.release_date.substring(0, 4)}
+                                        </p>
+
+                                    </aside>
+
+                                    <aside>
+
+                                        <h3>Orçamento</h3>
+
+                                        <p className={styles.details__info_revenue}>
+                                            {items.budget &&
+                                                <FormatNumeral format="0.0 a" text="US$ ">
+                                                    {items.budget}
+                                                </FormatNumeral>}
+                                        </p>
+
+                                    </aside>
+
+                                    <aside>
+
+                                        <h3>Bilheteria</h3>
+
+                                        <p className={styles.details__info_revenue}>
+                                            {items.revenue &&
+                                                <FormatNumeral format="0.0 a" text="US$ ">
+                                                    {items.revenue}
+                                                </FormatNumeral>}
+                                        </p>
+
+                                    </aside>
+
+                                </div>
+
+                                <div className={styles.details__genres}>
+
+                                    <h3>Gêneros</h3>
+
+                                    <ul>
+
+                                        {genres && genres.map((item) =>
+
+                                            <li
+                                                key={item.name}
+                                                className={styles.details__genres_item}
+                                            >
+
+                                                <Link to={`/filmes/${item.id}/${item.name}`}>
+
+                                                    {item.name}
+
+                                                </Link>
+
+                                            </li>
+
+                                        )}
+
+                                    </ul>
+
+                                </div>
+
+                                <Synopsis id={id} />
+
+                                <Casting id={id} />
+
+                                <Trailer id={id} />
+
+                            </div>
 
                         </div>
 
-                        <div className='container__details_info'>
+                        <Footer />
 
-                            <h1 className='details__title'>
-                                {items.title && items.title}
-                            </h1>
-
-                            <p className='details__sub'>
-                                {items.tagline && items.tagline}
-                            </p>
-
-                            <div className='details__vote-c'>
-
-                                <p className='details__vote'>{items.vote_average && items.vote_average}</p>
-
-                                <Rating
-                                    initialRating={items.vote_average && items.vote_average}
-                                    emptySymbol={<FaRegStar />}
-                                    fullSymbol={<FaStar />}
-                                    stop={10}
-                                    readonly
-                                />
-
-                            </div>
-
-                            <div className='details__info'>
-
-                                <aside>
-
-                                    <h3>Duração</h3>
-
-                                    <p>
-                                        {items.runtime && `${items.runtime}${' min.'}`}
-                                    </p>
-
-                                </aside>
-
-                                <aside>
-
-                                    <h3>Lançamento</h3>
-
-                                    <p>
-                                        {items.release_date && items.release_date.substring(0, 4)}
-                                    </p>
-
-                                </aside>
-
-                                <aside>
-
-                                    <h3>Orçamento</h3>
-
-                                    <p className='details__info-revenue'>
-                                        {items.budget &&
-                                            <FormatNumeral format='0.0 a' text='US$ '>
-                                                {items.budget}
-                                            </FormatNumeral>}
-                                    </p>
-
-                                </aside>
-
-                                <aside>
-
-                                    <h3>Bilheteria</h3>
-
-                                    <p className='details__info-revenue'>
-                                        {items.revenue &&
-                                            <FormatNumeral format='0.0 a' text='US$ '>
-                                                {items.revenue}
-                                            </FormatNumeral>}
-                                    </p>
-
-                                </aside>
-
-                            </div>
-
-                            <div className="details__genres">
-
-                                <h3>Gêneros</h3>
-
-                                <ul>
-
-                                    {genres && genres.map((item) =>
-
-                                        <li
-                                            key={item.name}
-                                            className='details__genres-item'
-                                        >
-                                            {item.name}
-                                        </li>
-
-                                    )}
-
-                                </ul>
-
-                            </div>
-
-                            <Synopsis id={id} />
-
-                            <Casting id={id} />
-
-                            <Trailer id={id} />
-
-                        </div>
-
-                    </div>
-
-                    <Footer />
+                    </Container>
 
                 </>
 
@@ -169,6 +182,6 @@ export default function Details() {
 
         </>
 
-    )
+    );
 
 }

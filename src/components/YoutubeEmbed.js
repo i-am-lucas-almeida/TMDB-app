@@ -1,9 +1,10 @@
-import React from "react";
+import styles from "../styles/components/YoutubeEmbed.module.css";
+
 import PropTypes from "prop-types";
 
 const YoutubeEmbed = ({ embedId }) => (
 
-  <div className="video-responsive">
+  <div className={styles.video_responsive}>
 
     <iframe
       width="853"
@@ -12,7 +13,7 @@ const YoutubeEmbed = ({ embedId }) => (
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
-      title={'Trailer do filme'}
+      title={"Trailer do filme"}
     />
 
   </div>

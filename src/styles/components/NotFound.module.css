@@ -1,6 +1,6 @@
-@import '../../styles/variables.css';
+@import '../variables.css';
 
-.container__notfound{
+.container__notfound {
     margin: 0 auto;
     margin-top: 20rem;
     margin-bottom: 10rem;
@@ -9,24 +9,24 @@
     justify-content: center;
 }
 
-.container__notfound > div{
+.container__notfound>div {
     text-align: center;
 }
 
-.container__notfound > div > h2{
+.container__notfound>div>h2 {
     margin-bottom: 5rem;
     font-size: 3rem;
     font-weight: 500;
 }
 
-.btn_home{
+.btn_home {
     background-color: var(--soft-blue);
     color: var(--white);
     padding: 1.5rem 3rem;
     border-radius: 8px;
 }
 
-.btn_home:hover{
+.btn_home:hover {
     background-color: var(--white);
     color: var(--dark-blue);
 }

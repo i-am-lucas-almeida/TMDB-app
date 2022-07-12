@@ -1,23 +1,26 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getSearch } from "../../lib/apiLinks";
-import Footer from '../../components/layout/Footer';
 
-import { useFetch } from '../../hook/useFetch';
-import usePagination from '../../hook/usePagination';
-import MediaCard from "../../components/layout/MediaCard";
-import FormSearch from '../../components/layout/FormSearch';
-import ErrorMessage from "../../components/layout/ErrorMessage";
-import Loader from '../../components/layout/Loader';
-import Pagination from "../../components/layout/Pagination";
-import useTitle from '../../components/layout/useTitle';
-import FormatNumeral from '../../components/layout/FormatNumeral';
+import { useFetch } from "../../hook/useFetch";
+
+import Title from "../../components/Title";
+import Container from "../../components/Container";
+import usePagination from "../../hook/usePagination";
+import MediaCard from "../../components/MediaCard";
+import FormSearch from "../../components/FormSearch";
+import ErrorMessage from "../../components/ErrorMessage";
+import Loader from "../../components/Loader";
+import Pagination from "../../components/Pagination";
+import useTitle from "../../utils/useTitle";
+import FormatNumeral from "../../components/FormatNumeral";
+import Footer from "../../components/Footer";
 
 const Search = () => {
 
     const { id } = useParams();
 
-    useTitle(`Filmes App | ${id}`);
+    useTitle(`Filmes Flix | ${id}`);
 
     const { setActualPage, actualPage } = usePagination();
 
@@ -48,17 +51,19 @@ const Search = () => {
 
                 <>
 
-                    <div className='container'>
+                    <Container>
 
-                        <p className='title'>
+                        <Title>
+
                             Encontrados&nbsp;
-                            <FormatNumeral text='' format='0,0'>
+                            <FormatNumeral text="" format="0,0">
                                 {totalResults}
                             </FormatNumeral>
                             &nbsp;resultados para {`"${id}"`}
-                        </p>
 
-                        <div className='movies__container'>
+                        </Title>
+
+                        <div className="movies__container">
 
                             {data.results && data.results.map((trend) =>
 
@@ -74,7 +79,7 @@ const Search = () => {
                             totalPages={totalPages}
                         />
 
-                    </div>
+                    </Container>
 
                     <Footer />
 
@@ -86,6 +91,6 @@ const Search = () => {
 
     );
 
-}
+};
 
 export default Search;

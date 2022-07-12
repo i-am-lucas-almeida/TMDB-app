@@ -1,6 +1,6 @@
-@import '../../styles/variables.css';
+@import '../variables.css';
 
-.pagination__c{
+.pagination__c {
     height: 5rem;
     margin-top: 8rem;
     display: flex;
@@ -8,13 +8,13 @@
     justify-content: center;
 }
 
-.pagination__numeral{
+.pagination__numeral {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.button__pagination{
+.button__pagination {
     display: flex;
     place-items: center;
     background-color: var(--dark-blue);
@@ -29,7 +29,8 @@
     transition: .3s;
 }
 
-.button__pagination--active, .button__pagination:hover{
+.button__pagination_active,
+.button__pagination:hover {
     background-color: var(--white) !important;
     color: var(--dark-blue) !important;
 }

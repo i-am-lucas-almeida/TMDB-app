@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 function useTitle(title) {
 
@@ -11,8 +11,9 @@ function useTitle(title) {
 
             document.title = prevTitle;
 
-        }
-    })
+        };
+
+    });
 
 }
 

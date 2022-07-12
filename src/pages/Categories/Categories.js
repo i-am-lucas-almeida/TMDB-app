@@ -12,22 +12,46 @@ import Pagination from "../../components/Pagination";
 import usePagination from "../../hook/usePagination";
 import Footer from "../../components/Footer";
 
-import { getMovies } from "../../lib/apiLinks";
+import { getMovieCategory } from "../../lib/apiLinks";
 import useTitle from "../../utils/useTitle";
 
-const Movies = () => {
+const Categories = () => {
 
-    const { name, id } = useParams();
-
-    useTitle(`Filmes Flix | ${name}`);
+    useTitle("Filmes Flix | Top TMDB");
 
     const { setActualPage, actualPage } = usePagination();
 
-    const URL = getMovies(id, actualPage);
+    const { type } = useParams();
+
+    const URL = getMovieCategory(actualPage, type);
 
     const { data, error, loading } = useFetch(URL);
 
     const totalPages = data.total_pages;
+
+    function getTitle() {
+
+        let title = "";
+
+        switch (type) {
+
+            case "upcoming":
+                title = "Lançamentos";
+                break;
+            case "popular":
+                title = "Populares";
+                break;
+            case "top_rated":
+                title = "Top TMDB";
+                break;
+            default:
+                title = "";
+
+        }
+
+        return title;
+
+    }
 
     return (
 
@@ -45,7 +69,7 @@ const Movies = () => {
 
                     <Container>
 
-                        <Title>{name}</Title>
+                        <Title>{getTitle()}</Title>
 
                         <div className="movies__container">
 
@@ -77,4 +101,4 @@ const Movies = () => {
 
 };
 
-export default Movies;
+export default Categories;

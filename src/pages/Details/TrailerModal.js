@@ -1,7 +1,10 @@
-import '../Details/Details.css';
-import { useState } from 'react';
-import { FaPlay, FaTimesCircle } from 'react-icons/fa';
-import YoutubeEmbed from '../../components/layout/YoutubeEmbed';
+import styles from "../../styles/pages/Details.module.css";
+
+import { useState } from "react";
+
+import { FaTimesCircle } from "react-icons/fa";
+import YoutubeEmbed from "../../components/YoutubeEmbed";
+import { BsPlayCircleFill } from "react-icons/bs";
 
 const TrailerModal = ({ key_trailer, index_trailer }) => {
 
@@ -11,18 +14,18 @@ const TrailerModal = ({ key_trailer, index_trailer }) => {
 
         <>
 
-            <button onClick={() => setShowVideo(!showVideo)} className='button__trailer'>
+            <button onClick={() => setShowVideo(!showVideo)} className={styles.button__trailer}>
 
-                <FaPlay />
+                <BsPlayCircleFill />
                 <span>Trailer {index_trailer + 1}</span>
 
             </button>
 
-            <div className={`modal__trailer-c ${showVideo ? 'show-modal' : ''}`}>
+            <div className={`${styles.modal__trailer_c} ${showVideo ? styles.show_modal : ""}`}>
 
-                <div className='modal__trailer animate__animated animate__pulse'>
+                <div className={styles.modal__trailer}>
 
-                    <FaTimesCircle onClick={() => setShowVideo(!showVideo)} className='button__close' />
+                    <FaTimesCircle onClick={() => setShowVideo(!showVideo)} className={styles.button__close} />
 
                     <YoutubeEmbed embedId={key_trailer} />
 
@@ -32,8 +35,8 @@ const TrailerModal = ({ key_trailer, index_trailer }) => {
 
         </>
 
-    )
+    );
 
-}
+};
 
 export default TrailerModal;

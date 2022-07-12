@@ -1,17 +1,17 @@
-@import '../../styles/variables.css';
+@import '../variables.css';
 
-.form__container{
+.form__container {
     margin: 0 auto;
     max-width: 100%;
     width: 1440px;
-    padding: 0 5rem;
-    margin-top: 12rem;
+    padding: 0 3rem;
+    margin-top: 10rem;
     margin-bottom: 5rem;
     display: flex;
     align-items: center;
 }
 
-.search__input{
+.search__input {
     padding: 1rem 0;
     width: 100%;
     background-color: transparent;
@@ -25,29 +25,29 @@
     cursor: pointer;
 }
 
-.search__input:focus{
+.search__input:focus {
     border-bottom: 1.5px solid var(--soft-blue);
     caret-color: var(--red);
 }
 
-.search__input::placeholder{
+.search__input::placeholder {
     color: var(--soft-gray);
     font-size: 2.5rem;
     font-weight: 300;
     font-family: inherit;
 }
 
-.search__icon{
+.search__icon {
     padding-right: 2rem;
 }
 
-.btn-search{
+.btn__search {
     background-color: var(--soft-blue);
     margin-left: 2rem;
     color: var(--white);
     font-weight: 500;
     font-family: inherit;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     border: none;
     padding: 1rem 2rem;
     border-radius: 5px;
@@ -55,23 +55,24 @@
     cursor: pointer;
 }
 
-.btn-search:hover{
+.btn__search:hover {
     background-color: var(--white);
     color: var(--dark-blue);
 }
 
 
-@media(max-width: 600px){
+@media(max-width: 600px) {
 
-    .search__icon{
+    .search__icon {
         display: none;
     }
 
-    .form__container{
+    .form__container {
         padding: 0 2rem;
     }
 
-    .search__input, .search__input::placeholder{
+    .search__input,
+    .search__input::placeholder {
         font-size: 2rem;
     }
 

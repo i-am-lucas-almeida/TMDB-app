@@ -1,189 +1,180 @@
-@import '../../styles/variables.css';
+@import '../variables.css';
 
-.container__details{
-    max-width: 100%;
-    width: 1440px;
+.container__details {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 5rem;
 }
 
-.container__details_poster{
+.container__details_poster {
     max-width: 100%;
     width: 35%;
 }
 
-.container__details_poster > img{
+.container__details_poster>img {
     max-width: 100%;
     width: 100%;
     border-radius: 8px;
 }
 
-.container__details_info{
+.container__details_info {
     max-width: 100%;
     width: 60%;
 }
 
-.details__title{
+.details__title {
     font-size: 5rem;
     font-weight: 300;
     margin-bottom: 1rem;
 }
 
-.details__sub{
+.details__sub {
     margin-bottom: 3rem;
     font-size: 2.2rem;
     font-weight: 300;
     color: var(--soft-gray);
 }
 
-.details__vote-c{
+.details__vote_c {
     color: var(--yellow);
     margin-bottom: 3rem;
     display: flex;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    font-weight: 600;
 }
 
-.details__vote{
+.details__vote {
     color: var(--white);
     font-size: 6rem;
     margin-right: 1.5rem;
 }
 
-.details__info{
+.details__info {
     margin-bottom: 4rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.details__info > aside{
+.details__info>aside {
     margin-right: 5rem;
 }
 
-.details__info > aside > h3{
-    font-size: 2rem;
+.details__info>aside>h3 {
+    font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: var(--soft-blue);
+    color: var(--soft-gray);
+    font-weight: 400;
 }
 
-.details__info > aside > p{
-    font-size: 2rem;
+.details__info>aside>p {
+    font-size: 1.8rem;
     font-weight: 600;
 }
 
-.details__info-revenue{
+.details__info_revenue {
     text-transform: uppercase;
 }
 
-.details__genres > h3, .details__synopsis > h3{
+.details__genres>h3,
+.details__synopsis>h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--soft-blue);
+    color: var(--white);
 }
 
-.details__genres > ul{
+.details__genres>ul {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 4rem;
 }
 
-.details__genres-item{
+.details__genres_item {
     background-color: var(--white);
     color: var(--dark-blue);
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-top: 1rem;
     margin-right: 1rem;
     padding: .5rem 1rem;
     border-radius: 5px;
+    transition: .3s;
 }
 
-.details__cast > h3{
+.details__genres_item:hover {
+    background-color: var(--soft-blue);
+    color: var(--white);
+}
+
+.details__cast>h3 {
     font-size: 2rem;
-    color: var(--soft-blue);
+    color: var(--white);
     margin-bottom: 1rem;
 }
 
-.details__cast-c{
+.details__cast_c {
     display: flex;
     flex-wrap: wrap;
 }
 
-.cast-item{
+.cast_item {
     padding: .3rem .6rem;
     border: 1.2px solid var(--white);
     border-radius: 5px;
     margin: .5rem 0;
     margin-right: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
 }
 
-.details__synopsis{
+.details__synopsis {
     margin-bottom: 4rem;
 }
 
-.details__overview{
-    font-size: 2rem;
+.details__overview {
+    font-size: 1.8rem;
+    font-weight: 400;
     line-height: 3rem;
     margin-bottom: 1rem;
 }
 
-.read-more{
-    display: flex;
-    align-items: flex-end;
-    color: var(--red);
-    font-weight: 500;
-    font-size: 1.8rem;
-    font-family: inherit;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.read-more:hover{
-    text-decoration: underline;
-}
-
-.details__button{
+.details__button {
     color: var(--red);
     font-size: 2rem;
     display: flex;
     align-items: center;
 }
 
-.details__button > img{
+.details__button>img {
     width: 4rem;
     margin-right: 8px;
 }
 
-.details__button:hover > p{
+.details__button:hover>p {
     text-decoration: underline;
 }
 
-.details__trailer-c{
+/***************************************************/
+
+.details__trailer_c {
     display: flex;
     flex-wrap: wrap;
     margin-top: 3rem;
 }
 
-.trailer-item{
+.trailer_item {
     margin: 1rem 0;
     margin-right: 1.5rem;
 }
 
-/***************************************************/
-
-.button__trailer{
+.button__trailer {
     background-color: var(--soft-blue);
     color: var(--white);
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 500;
     font-family: inherit;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -193,17 +184,21 @@
     cursor: pointer;
 }
 
-.button__trailer > span{
+.button__trailer>span {
     padding-left: 1rem;
 }
 
-.button__trailer:hover{
+.button__trailer>svg {
+    font-size: 2rem;
+}
+
+.button__trailer:hover {
     background-color: var(--white);
     color: var(--dark-blue);
 }
 
-.modal__trailer-c{
-    background-color: #00000080;
+.modal__trailer_c {
+    background-color: #00000095;
     width: 100%;
     height: 100%;
     display: none;
@@ -217,63 +212,63 @@
     z-index: 999999999999;
 }
 
-.modal__trailer{
-    background-color: var(--pale-blue);
+.modal__trailer {
     display: grid;
     place-items: center;
     padding: 1rem;
     max-width: 100%;
-    width: 70rem;
-    height: 35rem;
+    width: 80rem;
+    height: 40rem;
     border-radius: 10px;
     position: relative;
 }
 
-.button__close{
+.button__close {
     position: absolute;
     z-index: 9999;
     top: -2rem;
     right: -2rem;
-    font-size: 4rem;
+    font-size: 3rem;
     cursor: pointer;
 }
 
-.button__close:hover{
+.button__close:hover {
     color: var(--red);
 }
 
-.show-modal{
+.show_modal {
     display: grid !important;
 }
 
 @media(max-width: 1200px) {
 
-    .container__details{
+    .container__details {
         display: block;
     }
 
-    .container__details_poster{
+    .container__details_poster {
         width: 100%;
         text-align: center;
     }
 
-    .container__details_poster > img{
+    .container__details_poster>img {
         max-width: 100%;
         width: 40rem;
         margin-bottom: 3rem;
     }
 
-    .details__title{
+    .details__title {
         text-align: center;
         font-size: 4rem;
     }
 
-    .details__sub{
+    .details__sub {
         margin: 3rem auto;
         text-align: center;
+        font-size: 2rem;
     }
 
-    .details__vote-c{
+    .details__vote_c {
         margin-bottom: 5rem;
         display: grid;
         align-items: center;
@@ -281,59 +276,65 @@
         text-align: center;
     }
 
-    .details__vote{
+    .details__vote {
         margin-bottom: 1rem;
         font-size: 5rem;
         margin-right: 0;
     }
 
-    .container__details_info{
-        width: 100%;
-    }
-    
-    .details__overview{
+    .container__details_info {
         width: 100%;
     }
 
-    .details__button{
+    .details__overview {
+        width: 100%;
+    }
+
+    .details__button {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .details__trailer-c{
+    .details__trailer_c {
         display: flex;
         justify-content: center;
     }
 
 }
 
-@media(max-width: 800px) {
+@media(max-width: 900px) {
 
-    .modal__trailer{
+    .modal__trailer {
         max-width: 100%;
-        width: 45rem;
-        height: 25rem;
+        width: 60rem;
+        height: 30rem;
     }
 
 }
 
-@media(max-width: 600px) {
+@media(max-width: 700px) {
 
-    .details__title{
-        font-size: 3rem;
+    .modal__trailer {
+        max-width: 100%;
+        width: 40rem;
+        height: 30rem;
     }
 
-    .container__details{
-        padding: 5rem 2rem;
+    .details__title {
+        font-size: 3.5rem;
     }
 
-    .details__vote-c{
+    .container__details {
+        padding: 5rem 0;
+    }
+
+    .details__vote_c {
         font-size: 2rem;
         margin-bottom: 2rem;
     }
 
-    .details__info > aside{
+    .details__info>aside {
         margin-top: 2.5rem;
     }
 
@@ -341,7 +342,7 @@
 
 @media(max-width: 500px) {
 
-    .modal__trailer{
+    .modal__trailer {
         max-width: 100%;
         width: 35rem;
         height: 25rem;

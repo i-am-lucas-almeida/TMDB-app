@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import qs from 'query-string';
+import { useState, useEffect } from "react";
+import qs from "query-string";
 
 export default function usePagination() {
 
@@ -33,7 +33,7 @@ export default function usePagination() {
                 page: actualPage
             })
             
-        })
+        });
 
     }, [actualPage, navigate, location.search]);
 

@@ -1,6 +1,6 @@
-@import '../../styles/variables.css';
+@import '../variables.css';
 
-footer{
+footer {
     margin: 0 auto;
     max-width: 100%;
     width: 1440px;
@@ -8,11 +8,11 @@ footer{
     text-align: center;
 }
 
-.small{
+.small {
     color: var(--soft-gray);
 }
 
-.logo-tmdb{
+.logo_tmdb {
     margin-top: 8px;
     width: 18rem;
 }
