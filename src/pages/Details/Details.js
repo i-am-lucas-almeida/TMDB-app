@@ -31,7 +31,7 @@ export default function Details() {
 
     const { data: items, loading, error } = useFetch(URL);
 
-    useTitle(`${items.title ? items.title + " | " : ""}Filmes Flix `);
+    useTitle(`${items.title ? items.title + " | " : ""}TMDB App `);
 
     const genres = items.genres;
 

@@ -13,7 +13,7 @@ import Footer from "../../components/Footer";
 
 const Genres = () => {
 
-    useTitle("Filmes Flix | Gêneros");
+    useTitle("TMDB App | Gêneros");
 
     const URL = getGenres();
 

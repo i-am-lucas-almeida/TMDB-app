@@ -17,7 +17,7 @@ import useTitle from "../../utils/useTitle";
 
 const Categories = () => {
 
-    useTitle("Filmes Flix | Top TMDB");
+    useTitle("TMDB App | Top TMDB");
 
     const { setActualPage, actualPage } = usePagination();
 

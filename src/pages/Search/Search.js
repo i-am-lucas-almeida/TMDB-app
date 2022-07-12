@@ -20,7 +20,7 @@ const Search = () => {
 
     const { id } = useParams();
 
-    useTitle(`Filmes Flix | ${id}`);
+    useTitle(`TMDB App | ${id}`);
 
     const { setActualPage, actualPage } = usePagination();
 

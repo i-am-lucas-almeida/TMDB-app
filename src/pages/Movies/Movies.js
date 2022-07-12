@@ -19,7 +19,7 @@ const Movies = () => {
 
     const { name, id } = useParams();
 
-    useTitle(`Filmes Flix | ${name}`);
+    useTitle(`TMDB App | ${name}`);
 
     const { setActualPage, actualPage } = usePagination();
 
@@ -28,8 +28,6 @@ const Movies = () => {
     const { data, error, loading } = useFetch(URL);
 
     const totalPages = data.total_pages;
-
-    console.log(data);
 
     return (
 

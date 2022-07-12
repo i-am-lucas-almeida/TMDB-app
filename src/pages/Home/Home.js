@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 
 const Home = () => {
 
-    useTitle("Filmes Flix | Página Principal");
+    useTitle("TMDB App | Página Principal");
 
     return (
 
