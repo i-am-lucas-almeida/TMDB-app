@@ -40,10 +40,10 @@ Estou sempre aberto a ideias e sugestões então, por favor, deixe-me saber se v
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/i-am-lucas-almeida/Filmes-App.git
+$ git clone https://github.com/i-am-lucas-almeida/TMDB-app.git
 
 # Acesse a pasta do projeto
-$ cd movies-app
+$ cd tmdb-react-app
 
 # Instale as dependências
 $ npm install
