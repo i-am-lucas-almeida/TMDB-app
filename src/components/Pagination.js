@@ -1,6 +1,9 @@
 import styles from "../styles/components/Pagination.module.css";
 
-import { TiArrowLeftThick, TiArrowRightThick } from "react-icons/ti";
+import {
+    HiOutlineChevronDoubleRight,
+    HiOutlineChevronDoubleLeft
+} from "react-icons/hi";
 
 const Pagination = ({ currentPage, totalPages, setActualPage }) => {
 
@@ -37,13 +40,12 @@ const Pagination = ({ currentPage, totalPages, setActualPage }) => {
                     {
                         currentPage > 1 &&
 
-                        <li>
+                        <li title="Anterior">
                             <button
-                                className={styles.button__pagination}
+                                className={`${styles.button__pagination} ${styles.button__arrow}`}
                                 onClick={prevPage}>
 
-                                <TiArrowLeftThick />
-                                <span>Ant.</span>
+                                <HiOutlineChevronDoubleLeft />
 
                             </button>
                         </li>
@@ -69,13 +71,12 @@ const Pagination = ({ currentPage, totalPages, setActualPage }) => {
                     {
                         totalPages !== currentPage &&
 
-                        <li>
+                        <li title="Próxima">
                             <button
-                                className={styles.button__pagination}
+                                className={`${styles.button__pagination} ${styles.button__arrow}`}
                                 onClick={nextPage}>
 
-                                <span>Próx.</span>
-                                <TiArrowRightThick />
+                                <HiOutlineChevronDoubleRight />
 
                             </button>
                         </li>
