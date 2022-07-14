@@ -36,7 +36,7 @@
 }
 
 .details__vote_c {
-    color: var(--yellow);
+    color: var(--white);
     margin-bottom: 3rem;
     display: flex;
     align-items: center;

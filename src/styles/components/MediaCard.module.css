@@ -17,20 +17,44 @@
     transition: .3s;
 }
 
+.media__container_info {
+    margin-bottom: .5rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    opacity: .75;
+}
+
+.media__container_info>span {
+    margin: 0 .5rem;
+}
+
 .media__container_vote {
-    padding-top: 1.5rem;
     display: flex;
     align-items: flex-start;
 }
 
 .media__container_vote>img {
-    width: 2rem;
-    margin-right: 5px;
+    width: 1.4rem;
+    margin-right: .5rem;
 }
 
-.media__vote {
-    font-size: 1.8rem;
-    font-weight: 500;
+.media__container_type>div {
+    display: flex;
+    align-items: center;
+}
+
+.media__container_type>div>img {
+    margin-right: .5rem;
+}
+
+.media__container_vote {
+    display: flex;
+    align-items: center;
+}
+
+.media__container_vote>img {
+    width: 1.6rem;
 }
 
 .media__title {

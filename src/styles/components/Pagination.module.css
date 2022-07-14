@@ -30,8 +30,8 @@
     transition: .3s;
 }
 
-.button__pagination>span {
-    padding: 0 .5rem;
+.button__arrow {
+    padding: .7rem 1.2rem;
 }
 
 .button__pagination_active,
