@@ -4,11 +4,15 @@ const ErrorMessage = () => {
 
     return (
 
-        <>
-
-            <p className={styles.error_message}>Houve algum erro! <br /> Por favor, recarregue a página ou volte para a home.</p>
-
-        </>
+        <div className={styles.error_message}>
+            <p>
+                Houve algum erro!
+            </p>
+            <br />
+            <p>
+                Por favor, recarregue a página ou volte para a home.
+            </p>
+        </div>
 
     );
 
