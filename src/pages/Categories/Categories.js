@@ -4,6 +4,7 @@ import { useFetch } from "../../hook/useFetch";
 
 import Title from "../../components/Title";
 import Container from "../../components/Container";
+import ContainerMedia from "../../components/ContainerMedia";
 import FormSearch from "../../components/FormSearch";
 import ErrorMessage from "../../components/ErrorMessage";
 import Loader from "../../components/Loader";
@@ -11,29 +12,20 @@ import MediaCard from "../../components/MediaCard";
 import Pagination from "../../components/Pagination";
 import usePagination from "../../hook/usePagination";
 import Footer from "../../components/Footer";
+import MediaTag from "../../components/MediaTag";
 
-import { getMovieCategory } from "../../lib/apiLinks";
+import { getCategory } from "../../lib/apiLinks";
 import useTitle from "../../utils/useTitle";
 
 const Categories = () => {
 
-    useTitle("TMDB App | Top TMDB");
-
-    const { setActualPage, actualPage } = usePagination();
-
-    const { type } = useParams();
-
-    const URL = getMovieCategory(actualPage, type);
-
-    const { data, error, loading } = useFetch(URL);
-
-    const totalPages = data.total_pages;
+    const { type, category } = useParams();
 
     function getTitle() {
 
         let title = "";
 
-        switch (type) {
+        switch (category) {
 
             case "upcoming":
                 title = "Lançamentos";
@@ -53,15 +45,25 @@ const Categories = () => {
 
     }
 
+    useTitle(`TMDB App | ${getTitle()}`);
+
+    const { setActualPage, actualPage } = usePagination();
+
+    const URL = getCategory(actualPage, `${type}/${category}`);
+
+    const { data, error, loading } = useFetch(URL);
+
+    const totalPages = data.total_pages;
+
     return (
 
         <>
 
             <FormSearch />
 
-            {error && <ErrorMessage />}
-
             {loading && <Loader />}
+
+            {error && <ErrorMessage />}
 
             {!loading &&
 
@@ -69,17 +71,29 @@ const Categories = () => {
 
                     <Container>
 
-                        <Title>{getTitle()}</Title>
+                        <div className="container__title">
 
-                        <div className="movies__container">
+                            <Title>{getTitle()}</Title>
+
+                            <MediaTag
+                                type={type}
+                            />
+
+                        </div>
+
+                        <ContainerMedia>
 
                             {data.results && data.results.map((item) =>
 
-                                <MediaCard key={item.id} {...item} />
+                                <MediaCard
+                                    key={item.id}
+                                    {...item}
+                                    type={type}
+                                />
 
                             )}
 
-                        </div>
+                        </ContainerMedia>
 
                         <Pagination
                             setActualPage={setActualPage}

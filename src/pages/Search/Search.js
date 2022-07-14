@@ -6,6 +6,7 @@ import { useFetch } from "../../hook/useFetch";
 
 import Title from "../../components/Title";
 import Container from "../../components/Container";
+import ContainerMedia from "../../components/ContainerMedia";
 import usePagination from "../../hook/usePagination";
 import MediaCard from "../../components/MediaCard";
 import FormSearch from "../../components/FormSearch";
@@ -43,9 +44,9 @@ const Search = () => {
 
             <FormSearch />
 
-            {error && <ErrorMessage />}
-
             {loading && <Loader />}
+
+            {error && <ErrorMessage />}
 
             {!loading &&
 
@@ -63,15 +64,19 @@ const Search = () => {
 
                         </Title>
 
-                        <div className="movies__container">
+                        <ContainerMedia>
 
-                            {data.results && data.results.map((trend) =>
+                            {data.results && data.results.map((item) =>
 
-                                <MediaCard key={trend.id} {...trend} />
+                                <MediaCard
+                                    key={item.id}
+                                    {...item}
+                                    type={item.title ? "movie" : "tv"}
+                                />
 
                             )}
 
-                        </div>
+                        </ContainerMedia>
 
                         <Pagination
                             setActualPage={setActualPage}

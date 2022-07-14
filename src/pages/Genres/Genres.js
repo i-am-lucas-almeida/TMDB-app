@@ -1,8 +1,8 @@
 import styles from "../../styles/pages/Genres.module.css";
 
 import { useFetch } from "../../hook/useFetch";
-import { Link } from "react-router-dom";
-import { getGenres } from "../../lib/apiLinks";
+import { Link, useParams } from "react-router-dom";
+import { getGenres, genreMovie, genreTV } from "../../lib/apiLinks";
 
 import Container from "../../components/Container";
 import FormSearch from "../../components/FormSearch";
@@ -15,7 +15,9 @@ const Genres = () => {
 
     useTitle("TMDB App | Gêneros");
 
-    const URL = getGenres();
+    const { type } = useParams();
+
+    const URL = getGenres(type === "movie" ? genreMovie : genreTV);
 
     const { data, error, loading } = useFetch(URL);
 
@@ -23,11 +25,11 @@ const Genres = () => {
 
         <>
 
-            {error && <ErrorMessage />}
-
             {loading && <Loader />}
 
             <FormSearch />
+
+            {error && <ErrorMessage />}
 
             {!loading &&
 
@@ -43,7 +45,7 @@ const Genres = () => {
 
                                     <>
 
-                                        <Link to={`/filmes/${item.id}/${item.name}`}>
+                                        <Link to={`/generos/${type}/${item.name}/${item.id}`}>
 
                                             <div className={styles.genres__item}>
 

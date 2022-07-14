@@ -3,9 +3,9 @@ import styles from "../../styles/pages/Details.module.css";
 import { useFetch } from "../../hook/useFetch";
 import { getCasting } from "../../lib/apiLinks";
 
-const Casting = ({ id }) => {
+const Casting = ({ type, id }) => {
 
-    const URL = getCasting(id);
+    const URL = getCasting(type, id);
 
     const { data } = useFetch(URL);
 
@@ -19,15 +19,18 @@ const Casting = ({ id }) => {
 
             <ul className={styles.details__cast_c}>
 
-                {castMovie && castMovie.slice(0, 20).map((item) =>
+                {castMovie && castMovie.length > 0 ? castMovie.slice(0, 20).map((item) =>
 
                     <li className={styles.cast_item} key={item.id}>
 
                         {item.name}
 
-                    </li>
+                    </li>) :
 
-                )}
+                    (<p className={styles.details__overview}>
+                        Nenhuma informação sobre o elenco.
+                    </p>)
+                }
 
             </ul>
 

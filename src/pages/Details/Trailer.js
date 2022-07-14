@@ -4,9 +4,9 @@ import { useFetch } from "../../hook/useFetch";
 import { getTrailer } from "../../lib/apiLinks";
 import TrailerModal from "./TrailerModal";
 
-const Trailer = ({ id }) => {
+const Trailer = ({ type, id }) => {
 
-    const URL = getTrailer(id);
+    const URL = getTrailer(type, id);
 
     const { data } = useFetch(URL);
 

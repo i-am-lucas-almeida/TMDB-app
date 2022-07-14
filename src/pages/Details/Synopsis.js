@@ -3,9 +3,9 @@ import styles from "../../styles/pages/Details.module.css";
 import { useFetch } from "../../hook/useFetch";
 import { getSynopsis } from "../../lib/apiLinks";
 
-const Synopsis = ({ id }) => {
+const Synopsis = ({ type, id }) => {
 
-    const URL = getSynopsis(id);
+    const URL = getSynopsis(type, id);
 
     const { data } = useFetch(URL);
 
@@ -26,7 +26,8 @@ const Synopsis = ({ id }) => {
                 :
 
                 <p className={styles.details__overview}>
-                    O filme não possui uma sinopse.
+                    {type === "tv" && "A série não possui uma sinopse."}
+                    {type === "movie" && "O filme não possui uma sinopse."}
                 </p>
 
             }

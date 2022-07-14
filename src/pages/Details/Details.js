@@ -22,18 +22,16 @@ import Synopsis from "./Synopsis";
 
 export default function Details() {
 
-    const { id } = useParams();
+    const { type, id } = useParams();
 
     const IMG_API = getImages();
     const IMG_DEF = getImageDefault();
 
-    const URL = getDetails(id);
+    const URL = getDetails(type, id);
 
     const { data: items, loading, error } = useFetch(URL);
 
-    useTitle(`${items.title ? items.title + " | " : ""}TMDB App `);
-
-    const genres = items.genres;
+    useTitle(`${items.title ? items.title : items.name + " | "}TMDB App `);
 
     return (
 
@@ -55,14 +53,14 @@ export default function Details() {
 
                             <div className={styles.container__details_poster}>
 
-                                <img src={items.poster_path ? (IMG_API + items.poster_path) : IMG_DEF} alt={items.title && items.title} />
+                                <img src={items.poster_path ? (IMG_API + items.poster_path) : IMG_DEF} alt={items.title ? items.title : items.name} />
 
                             </div>
 
                             <div className={styles.container__details_info}>
 
                                 <h1 className={styles.details__title}>
-                                    {items.title && items.title}
+                                    {items.title ? items.title : items.name}
                                 </h1>
 
                                 <p className={styles.details__sub}>
@@ -92,46 +90,82 @@ export default function Details() {
                                         <h3>Duração</h3>
 
                                         <p>
-                                            {items.runtime && `${items.runtime}${" min."}`}
+                                            {items.runtime ? `${items.runtime} min.` : `${items.number_of_episodes} episódios`}
                                         </p>
 
                                     </aside>
+
+                                    {
+                                        items.number_of_seasons &&
+
+                                        <aside>
+
+                                            <h3>Temporadas</h3>
+
+                                            <p>
+                                                {items.number_of_seasons}
+                                            </p>
+
+                                        </aside>
+
+                                    }
 
                                     <aside>
 
                                         <h3>Lançamento</h3>
 
                                         <p>
-                                            {items.release_date && items.release_date.substring(0, 4)}
+                                            {items.release_date ? items.release_date.substring(0, 4) : ""}
+                                            {items.first_air_date ? items.first_air_date.substring(0, 4) : ""}
                                         </p>
 
                                     </aside>
 
-                                    <aside>
+                                    {
+                                        items.budget &&
 
-                                        <h3>Orçamento</h3>
+                                        <aside>
 
-                                        <p className={styles.details__info_revenue}>
-                                            {items.budget &&
+                                            <h3>Orçamento</h3>
+
+                                            <p className={styles.details__info_revenue}>
                                                 <FormatNumeral format="0.0 a" text="US$ ">
                                                     {items.budget}
-                                                </FormatNumeral>}
-                                        </p>
+                                                </FormatNumeral>
+                                            </p>
 
-                                    </aside>
+                                        </aside>
+                                    }
 
-                                    <aside>
+                                    {
+                                        items.in_production &&
 
-                                        <h3>Bilheteria</h3>
+                                        <aside>
 
-                                        <p className={styles.details__info_revenue}>
-                                            {items.revenue &&
+                                            <h3>Estado</h3>
+
+                                            <p>
+                                                {items.in_production === true ? "Em exibição" : "Finalizada"}
+                                            </p>
+
+                                        </aside>
+                                    }
+
+                                    {
+                                        items.revenue &&
+
+                                        <aside>
+
+                                            <h3>Bilheteria</h3>
+
+                                            <p className={styles.details__info_revenue}>
                                                 <FormatNumeral format="0.0 a" text="US$ ">
                                                     {items.revenue}
-                                                </FormatNumeral>}
-                                        </p>
+                                                </FormatNumeral>
+                                            </p>
 
-                                    </aside>
+                                        </aside>
+                                    }
 
                                 </div>
 
@@ -141,32 +175,36 @@ export default function Details() {
 
                                     <ul>
 
-                                        {genres && genres.map((item) =>
+                                        {items.genres && items.genres.length ? items.genres.map((item) =>
 
                                             <li
                                                 key={item.name}
-                                                className={styles.details__genres_item}
-                                            >
+                                                className={styles.details__genres_item}>
 
-                                                <Link to={`/filmes/${item.id}/${item.name}`}>
+                                                <Link to={`/generos/${type}/${item.name}/${item.id}`}>
 
                                                     {item.name}
 
                                                 </Link>
 
-                                            </li>
+                                            </li>)
 
-                                        )}
+                                            :
+
+                                            (<p className={styles.details__overview}>
+                                                Nenhuma informação sobre os gêneros.
+                                            </p>)
+                                        }
 
                                     </ul>
 
                                 </div>
 
-                                <Synopsis id={id} />
+                                <Synopsis id={id} type={type} />
 
-                                <Casting id={id} />
+                                <Casting id={id} type={type} />
 
-                                <Trailer id={id} />
+                                <Trailer id={id} type={type} />
 
                             </div>
 

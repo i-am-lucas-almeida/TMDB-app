@@ -1,8 +1,16 @@
 import FormSearch from "../../components/FormSearch";
 import Container from "../../components/Container";
-import MovieCategory from "../../components/MovieCategory";
+import CategorySection from "../../components/CategorySection";
 import useTitle from "../../utils/useTitle";
 import Footer from "../../components/Footer";
+
+import {
+    moviePopular,
+    movieUpcoming,
+    movieTopRated,
+    tvPopular,
+    tvTopRated
+} from "../../lib/apiLinks";
 
 const Home = () => {
 
@@ -16,22 +24,34 @@ const Home = () => {
 
             <Container>
 
-                <MovieCategory
+                <CategorySection
                     title="Lançamentos"
-                    category="upcoming"
-                    slug="upcoming"
+                    category={movieUpcoming}
+                    type="movie"
                 />
 
-                <MovieCategory
+                <CategorySection
                     title="Populares"
-                    category="popular"
-                    slug="popular"
+                    category={moviePopular}
+                    type="movie"
                 />
 
-                <MovieCategory
+                <CategorySection
                     title="Top TMDB"
-                    category="top_rated"
-                    slug="top_rated"
+                    category={movieTopRated}
+                    type="movie"
+                />
+
+                <CategorySection
+                    title="Populares"
+                    category={tvPopular}
+                    type="tv"
+                />
+
+                <CategorySection
+                    title="Top TMDB"
+                    category={tvTopRated}
+                    type="tv"
                 />
 
             </Container>
