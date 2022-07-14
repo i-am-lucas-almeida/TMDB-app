@@ -8,7 +8,7 @@ import Home from "./pages/Home/Home";
 import Details from "./pages/Details/Details";
 import Genres from "./pages/Genres/Genres";
 import Search from "./pages/Search/Search";
-import Movies from "./pages/Movies/Movies";
+import MediaGenre from "./pages/Media/MediaGenre";
 import Categories from "./pages/Categories/Categories";
 
 export default function App() {
@@ -26,11 +26,11 @@ export default function App() {
         <Routes>
 
           <Route path="/" element={<Home />} />
-          <Route path="/detalhes/:id/:name" element={<Details />} />
+          <Route path="/detalhes/:type/:id/:name" element={<Details />} />
           <Route path="/pesquisa/:id" element={<Search />} />
-          <Route path="/generos" element={<Genres />} />
-          <Route path="/filmes/:id/:name" element={<Movies />} />
-          <Route path="/categoria/:type" element={<Categories />} />
+          <Route path="/generos/:type" element={<Genres />} />
+          <Route path="/generos/:type/:name/:id" element={<MediaGenre />} />
+          <Route path="/categoria/:type/:category" element={<Categories />} />
           <Route path="*" element={<NotFound />} />
 
         </Routes>
