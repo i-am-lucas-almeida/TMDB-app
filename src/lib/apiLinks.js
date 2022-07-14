@@ -12,50 +12,63 @@ export function getImageDefault() {
 
 }
 
-export function getMovies(id, page) {
+export function getMediaGenre(type, id, page) {
 
-    return `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&with_genres=${id}&page=${page}`;
+    return `https://api.themoviedb.org/3/discover/${type}?api_key=${API_KEY}&language=pt-BR&with_genres=${id}&page=${page}`;
 
 }
 
 export function getSearch(id, page) {
 
-    return `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&query=${id}&page=${page}`;
+    return `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=pt-BR&query=${id}&page=${page}`;
 
 }
 
-export function getGenres() {
+export function getGenres(type) {
 
-    return `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=pt-BR`;
-
-}
-
-export function getMovieCategory(page, type) {
-
-    return `https://api.themoviedb.org/3/movie/${type}?api_key=${API_KEY}&language=pt-BR&page=${page}`;
+    return `https://api.themoviedb.org/3/${type}?api_key=${API_KEY}&language=pt-BR`;
 
 }
 
-export function getDetails(id) {
+export function getCategory(page, type) {
 
-    return `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR`;
-
-}
-
-export function getCasting(id) {
-
-    return `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`;
+    return `https://api.themoviedb.org/3/${type}?api_key=${API_KEY}&language=pt-BR&page=${page}`;
 
 }
 
-export function getSynopsis(id) {
+export function getDetails(type, id) {
 
-    return `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=pt-BR`;
+    return `https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY}&language=pt-BR`;
+
+}
+
+export function getCasting(type, id) {
+
+    return `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${API_KEY}`;
 
 }
 
-export function getTrailer(id) {
+export function getSynopsis(type, id) {
 
-    return `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=pt-BR`;
+    return `https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY}&language=pt-BR`;
 
 }
+
+export function getTrailer(type, id) {
+
+    return `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${API_KEY}&language=pt-BR`;
+
+}
+
+// Movie
+export const moviePopular = "popular";
+export const movieUpcoming = "upcoming";
+export const movieTopRated = "top_rated";
+
+// TV
+export const tvPopular = "popular";
+export const tvTopRated = "top_rated";
+
+// Genre
+export const genreMovie = "/genre/movie/list";
+export const genreTV = "/genre/tv/list";
