@@ -73,18 +73,21 @@
     font-weight: 600;
 }
 
-.details__info_revenue {
+.details__info_value {
     text-transform: uppercase;
 }
 
-.details__genres>h3,
-.details__synopsis>h3 {
+.details__subtitle {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--white);
 }
 
-.details__genres>ul {
+.details__section {
+    margin-bottom: 4rem;
+}
+
+.details__section>ul {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 4rem;
@@ -107,18 +110,12 @@
     color: var(--white);
 }
 
-.details__cast>h3 {
-    font-size: 2rem;
-    color: var(--white);
-    margin-bottom: 1rem;
-}
-
 .details__cast_c {
     display: flex;
     flex-wrap: wrap;
 }
 
-.cast_item {
+.cast__item {
     padding: .3rem .6rem;
     border: 1.2px solid var(--white);
     border-radius: 5px;
@@ -128,15 +125,10 @@
     font-weight: 500;
 }
 
-.details__synopsis {
-    margin-bottom: 4rem;
-}
-
 .details__overview {
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 3rem;
-    margin-bottom: 1rem;
 }
 
 .details__button {

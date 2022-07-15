@@ -31,7 +31,7 @@ export default function Details() {
 
     const { data: items, loading, error } = useFetch(URL);
 
-    useTitle(`${items.title ? items.title : items.name + " | "}TMDB App `);
+    useTitle(`${items.title ? (items.title + " | TMDB App") : items.name ? (items.name + " | TMDB App") : "Sem título | TMDB App"}`);
 
     return (
 
@@ -60,7 +60,7 @@ export default function Details() {
                             <div className={styles.container__details_info}>
 
                                 <h1 className={styles.details__title}>
-                                    {items.title ? items.title : items.name}
+                                    {items.title ? items.title : items.name ? items.name : "Sem título"}
                                 </h1>
 
                                 <p className={styles.details__sub}>
@@ -74,7 +74,7 @@ export default function Details() {
                                     </p>
 
                                     <Rating
-                                        initialRating={items.vote_average && items.vote_average}
+                                        initialRating={items.vote_average}
                                         emptySymbol={<FaRegStar />}
                                         fullSymbol={<FaStar />}
                                         stop={10}
@@ -83,95 +83,88 @@ export default function Details() {
 
                                 </div>
 
-                                <div className={styles.details__info}>
+                                {type === "movie" ? (
 
-                                    <aside>
-
-                                        <h3>Duração</h3>
-
-                                        <p>
-                                            {items.runtime ? `${items.runtime} min.` : `${items.number_of_episodes} episódios`}
-                                        </p>
-
-                                    </aside>
-
-                                    {
-                                        items.number_of_seasons &&
+                                    <div className={styles.details__info}>
 
                                         <aside>
-
-                                            <h3>Temporadas</h3>
-
+                                            <h3>Duração</h3>
                                             <p>
-                                                {items.number_of_seasons}
+                                                {items.runtime ? `${items.runtime} min.` : "..."}
                                             </p>
-
                                         </aside>
 
-                                    }
-
-                                    <aside>
-
-                                        <h3>Lançamento</h3>
-
-                                        <p>
-                                            {items.release_date ? items.release_date.substring(0, 4) : ""}
-                                            {items.first_air_date ? items.first_air_date.substring(0, 4) : ""}
-                                        </p>
-
-                                    </aside>
-
-                                    {
-                                        items.budget &&
+                                        <aside>
+                                            <h3>Lançamento</h3>
+                                            <p>
+                                                {items.release_date ? items.release_date.substring(0, 4) : "..."}
+                                            </p>
+                                        </aside>
 
                                         <aside>
-
                                             <h3>Orçamento</h3>
-
-                                            <p className={styles.details__info_revenue}>
+                                            <p className={styles.details__info_value}>
                                                 <FormatNumeral format="0.0 a" text="US$ ">
-                                                    {items.budget}
+                                                    {items.budget ? items.budget : 0}
                                                 </FormatNumeral>
                                             </p>
-
                                         </aside>
-                                    }
-
-                                    {
-                                        items.in_production &&
 
                                         <aside>
-
-                                            <h3>Estado</h3>
-
-                                            <p>
-                                                {items.in_production === true ? "Em exibição" : "Finalizada"}
-                                            </p>
-
-                                        </aside>
-                                    }
-
-                                    {
-                                        items.revenue &&
-
-                                        <aside>
-
                                             <h3>Bilheteria</h3>
-
-                                            <p className={styles.details__info_revenue}>
+                                            <p className={styles.details__info_value}>
                                                 <FormatNumeral format="0.0 a" text="US$ ">
-                                                    {items.revenue}
+                                                    {items.revenue ? items.revenue : 0}
                                                 </FormatNumeral>
                                             </p>
-
                                         </aside>
-                                    }
 
-                                </div>
+                                    </div>
 
-                                <div className={styles.details__genres}>
+                                )
+                                    : (
 
-                                    <h3>Gêneros</h3>
+                                        <div className={styles.details__info}>
+
+                                            <aside>
+                                                <h3>Duração</h3>
+                                                <p>
+                                                    {items.number_of_episodes ? `${items.number_of_episodes} episódios` : "..."}
+                                                </p>
+                                            </aside>
+
+                                            <aside>
+                                                <h3>Temporadas</h3>
+                                                <p>
+                                                    {items.number_of_seasons ? items.number_of_seasons : "..."}
+                                                </p>
+                                            </aside>
+
+                                            <aside>
+                                                <h3>Lançamento</h3>
+                                                <p>
+                                                    {items.first_air_date ? items.first_air_date.substring(0, 4) : "..."}
+                                                </p>
+                                            </aside>
+
+                                            <aside>
+                                                <h3>Estado</h3>
+                                                <p>
+                                                    {items.in_production === true ? "Em exibição" : "Finalizada"}
+                                                </p>
+                                            </aside>
+
+                                        </div>
+
+                                    )
+
+                                }
+
+                                <div className={styles.details__section}>
+
+                                    <h3 className={styles.details__subtitle}>
+                                        Gêneros
+                                    </h3>
 
                                     <ul>
 

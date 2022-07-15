@@ -13,15 +13,17 @@ const Casting = ({ type, id }) => {
 
     return (
 
-        <div className={styles.details__cast}>
+        <div className={styles.details__section}>
 
-            <h3>Elenco principal</h3>
+            <h3 className={styles.details__subtitle}>
+                Elenco principal
+            </h3>
 
             <ul className={styles.details__cast_c}>
 
                 {castMovie && castMovie.length > 0 ? castMovie.slice(0, 20).map((item) =>
 
-                    <li className={styles.cast_item} key={item.id}>
+                    <li className={styles.cast__item} key={item.id}>
 
                         {item.name}
 

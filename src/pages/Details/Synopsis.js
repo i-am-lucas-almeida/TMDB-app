@@ -11,9 +11,9 @@ const Synopsis = ({ type, id }) => {
 
     return (
 
-        <div className={styles.details__synopsis}>
+        <div className={styles.details__section}>
 
-            <h3 className={styles.details__synopsis}>
+            <h3 className={styles.details__subtitle}>
                 Sinopse
             </h3>
 
