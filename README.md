@@ -1,17 +1,12 @@
-# Filmes App 🎥
+# [TMDB App](https://tmdbapp.vercel.app/) 🎥
 
-* ### Visite o site: [https://filmesapp.com](https://filmes-app.vercel.app)
-</br>
+![imagem-1](https://user-images.githubusercontent.com/77863766/179149388-1f26c316-64f8-4bff-bc3b-7021f75d21c0.png)
 
-![filmes-app-com netlify app__page=1](https://user-images.githubusercontent.com/77863766/168392855-e3014ec0-8aa2-42bc-8e30-f7eaf3b166b6.png)
-
-![filmes-app-com netlify app__page=1 (1)](https://user-images.githubusercontent.com/77863766/168392849-7ee42cea-92f9-4191-aa43-23b3fda4fc21.png)
-
-![filmes-app-com netlify app__page=1 (2)](https://user-images.githubusercontent.com/77863766/168392833-488cb6f1-36d4-4d4c-827d-037f91fc5362.png)
+![imagem-2](https://user-images.githubusercontent.com/77863766/179149370-9e10638c-2aef-4d08-8aa9-128323676ff2.png)
 
 ## Sobre
 
-Filmes App é um site que permite aos usuários, pesquisar e ter acesso a várias informações relevantes sobre filmes. As informações são obtidas da Api [The Movie Database(TMDB)](https://developers.themoviedb.org/3).
+TMDB App é um site que permite aos usuários, pesquisar e ter acesso a várias informações relevantes sobre filmes e séries. As informações são obtidas da Api [The Movie Database(TMDB)](https://developers.themoviedb.org/3).
 
 ## Ferramentas Usadas
 
@@ -33,10 +28,12 @@ Estou sempre aberto a ideias e sugestões então, por favor, deixe-me saber se v
 
 * [ ] Adicionar a opção de salvar os filmes favoritos;
 * [ ] Adicionar um sistema de cadastro para os usuários;
-* [ ] Adicionar também séries de tv e assim tornar o projeto mais completo;
-* [ ] Dar um up no design e melhorar a experiência do usuário;
+* [x] Adicionar séries de tv e assim tornar o projeto mais completo;
+* [x] Dar um up no design e melhorar a experiência do usuário;
 
 ## Começando
+
+Fique a vontade para clonar, usar e melhorar o projeto como quiser.
 
 ```bash
 # Clone este repositório
@@ -56,8 +53,9 @@ $ npm start
 Após clonar o projeto se atente as instruções:
 
 1. Crie uma chave para a api em [The Movie Database(TMDB)](https://developers.themoviedb.org/3);
-2. Cole sua chave de api em uma  variável de nome `REACT_APP_API_KEY` no arquivo `.env.example`;
+2. Cole sua chave de api na variável `REACT_APP_API_KEY` no arquivo `.env.example`;
+3. Renomeie o arquivo para `.env`;
 
 ## Links
 
-* Visite o site: [https://filmesapp.com](https://filmes-app.vercel.app)
+* ### Visite o site [clicando aqui!](https://tmdbapp.vercel.app/)
