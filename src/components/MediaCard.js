@@ -19,11 +19,14 @@ export default function MediaCard({ id, title, name, backdrop_path, poster_path,
 
             <Link to={`/detalhes/${type}/${id}/${title ? title : name}`}>
 
-                <img
-                    src={backdrop_path ? (IMG_API + backdrop_path) : poster_path ? (IMG_API + poster_path) : IMG_DEFAULT}
-                    alt={title ? title : name}
-                    className={styles.media__image}
-                />
+                <div className={styles.media__image}>
+
+                    <img
+                        src={backdrop_path ? (IMG_API + backdrop_path) : poster_path ? (IMG_API + poster_path) : IMG_DEFAULT}
+                        alt={title ? title : name}
+                    />
+
+                </div>
 
                 <div className={styles.media__container_info}>
 
