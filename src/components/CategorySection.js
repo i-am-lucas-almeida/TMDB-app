@@ -28,7 +28,7 @@ const CategorySection = ({ title, type, category }) => {
 
                     <h1 className={styles.category__title}>
 
-                        <Link to={`categoria/${type}/${category}`}>
+                        <Link to={`category/${type}/${category}`}>
                             {title}
                         </Link>
 
@@ -42,7 +42,7 @@ const CategorySection = ({ title, type, category }) => {
 
                 <button className={styles.category__button}>
 
-                    <Link to={`categoria/${type}/${category}`}>
+                    <Link to={`category/${type}/${category}`}>
                         Ver mais
                     </Link>
 
