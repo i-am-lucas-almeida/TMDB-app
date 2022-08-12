@@ -26,11 +26,11 @@ export default function App() {
         <Routes>
 
           <Route path="/" element={<Home />} />
-          <Route path="/detalhes/:type/:id/:name" element={<Details />} />
-          <Route path="/pesquisa/:id" element={<Search />} />
-          <Route path="/generos/:type" element={<Genres />} />
-          <Route path="/generos/:type/:name/:id" element={<MediaGenre />} />
-          <Route path="/categoria/:type/:category" element={<Categories />} />
+          <Route path="/details/:type/:id/:name" element={<Details />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/genres/:type" element={<Genres />} />
+          <Route path="/genres/:type/:name" element={<MediaGenre />} />
+          <Route path="/category/:type/:category" element={<Categories />} />
           <Route path="*" element={<NotFound />} />
 
         </Routes>
