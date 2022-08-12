@@ -1,13 +1,15 @@
 import styles from "../styles/components/FormSearch.module.css";
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import ImageSearch from "../assets/icon-search.svg";
 
 const FormSearch = () => {
 
     const [search, setSearch] = useState("");
+
+    const navigate = useNavigate();
 
     const handleOnChange = (e) => {
 
@@ -16,11 +18,21 @@ const FormSearch = () => {
     };
 
 
-    function preventSearch(e) {
+    function handleSearch(e) {
+
+        e.preventDefault();
+
+        if (search.trim()) {
+            navigate(`/search?query=${search}`);
+        }
+
+    }
+
+    function handleEnter(e) {
 
         if (e.code === "Enter") {
 
-            e.preventDefault();
+            handleSearch();
 
         }
 
@@ -30,7 +42,7 @@ const FormSearch = () => {
 
         <>
 
-            <form className={styles.form__container}>
+            <form onSubmit={handleSearch} className={styles.form__container}>
 
                 <img
                     src={ImageSearch}
@@ -41,18 +53,17 @@ const FormSearch = () => {
                 <input
                     type="search"
                     name={search}
-                    className={styles.search__input}
                     placeholder="Pesquise por Filmes e Séries"
                     onChange={handleOnChange}
                     value={search}
-                    onKeyDown={preventSearch}
+                    onKeyDown={handleEnter}
+                    className={styles.search__input}
                 />
 
-                <Link to={search && `/pesquisa/${search}`} className={styles.btn__search}>
-
+                <button type="submit"
+                    className={styles.btn__search}>
                     Buscar
-
-                </Link>
+                </button>
 
             </form>
 
