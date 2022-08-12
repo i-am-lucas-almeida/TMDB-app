@@ -45,7 +45,7 @@ const Genres = () => {
 
                                     <>
 
-                                        <Link to={`/generos/${type}/${item.name}/${item.id}`}>
+                                        <Link to={`/genres/${type}/${item.name}?query=${item.id}`}>
 
                                             <div className={styles.genres__item}>
 
