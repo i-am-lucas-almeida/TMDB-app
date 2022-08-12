@@ -81,3 +81,12 @@
     }
 
 }
+
+@media(max-width: 450px) {
+
+    .search__icon {
+        display: none;
+        padding: 0;
+    }
+
+}
