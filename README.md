@@ -15,12 +15,12 @@ TMDB App é um site que permite aos usuários, pesquisar e ter acesso a várias 
 * [React Router](https://v5.reactrouter.com/web/guides/quick-start)
 * [Numeral Js](http://numeraljs.com/)
 * [Query String](https://www.npmjs.com/package/query-string)
+* [Eslint](https://eslint.org/)
 * [The Movie Database(TMDB)](https://developers.themoviedb.org/3)
 
 ## Lições Aprendidas
 
-Nesse projeto pude exercitar minhas habilidades com consumo de api bem como aprimorar meus conhecimentos em React Js e React Routes. Assim como, implementar pela
-primeira vez um sistema de paginação.
+Nesse projeto pude exercitar minhas habilidades com consumo de api bem como aprimorar meus conhecimentos em React Js e React Routes. Assim como, implementar pela primeira vez um sistema de paginação.
 
 Estou sempre aberto a ideias e sugestões então, por favor, deixe-me saber se você tem algo a dizer!
 
