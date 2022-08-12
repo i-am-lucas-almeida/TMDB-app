@@ -70,7 +70,7 @@ export default function Details() {
                                 <div className={styles.details__vote_c}>
 
                                     <p className={styles.details__vote}>
-                                        {items.vote_average && items.vote_average}
+                                        {items.vote_average && items.vote_average.toFixed(1)}
                                     </p>
 
                                     <Rating
@@ -174,7 +174,7 @@ export default function Details() {
                                                 key={item.name}
                                                 className={styles.details__genres_item}>
 
-                                                <Link to={`/generos/${type}/${item.name}/${item.id}`}>
+                                                <Link to={`/genres/${type}/${item.name}?query=${item.id}`}>
 
                                                     {item.name}
 
