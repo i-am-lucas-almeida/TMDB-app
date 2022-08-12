@@ -33,58 +33,62 @@ const Pagination = ({ currentPage, totalPages, setActualPage }) => {
 
         <>
 
-            <div className={styles.pagination__c}>
+            {totalPages > 1 &&
 
-                <ul className={styles.pagination__numeral}>
+                <div className={styles.pagination__c}>
 
-                    {
-                        currentPage > 1 &&
+                    <ul className={styles.pagination__numeral}>
 
-                        <li title="Anterior">
-                            <button
-                                className={`${styles.button__pagination} ${styles.button__arrow}`}
-                                onClick={prevPage}>
+                        {
+                            currentPage > 1 &&
 
-                                <HiOutlineChevronDoubleLeft />
+                            <li title="Anterior">
+                                <button
+                                    className={`${styles.button__pagination} ${styles.button__arrow}`}
+                                    onClick={prevPage}>
 
-                            </button>
-                        </li>
-                    }
+                                    <HiOutlineChevronDoubleLeft />
 
-                    {Array.from({ length: Math.min(MAX_ITEMS, totalPages) })
-
-                        .map((_, index) => index + FIRST_PAGE)
-                        .map((page, index) => (
-
-                            <li key={index}>
-
-                                <button onClick={() => numeralPage(page)} className={`${styles.button__pagination} ${page === currentPage && styles.button__pagination_active}`}>
-                                    {page}
                                 </button>
-
                             </li>
+                        }
 
-                        ))
+                        {Array.from({ length: Math.min(MAX_ITEMS, totalPages) })
 
-                    }
+                            .map((_, index) => index + FIRST_PAGE)
+                            .map((page, index) => (
 
-                    {
-                        totalPages !== currentPage &&
+                                <li key={index}>
 
-                        <li title="Próxima">
-                            <button
-                                className={`${styles.button__pagination} ${styles.button__arrow}`}
-                                onClick={nextPage}>
+                                    <button onClick={() => numeralPage(page)} className={`${styles.button__pagination} ${page === currentPage && styles.button__pagination_active}`}>
+                                        {page}
+                                    </button>
 
-                                <HiOutlineChevronDoubleRight />
+                                </li>
 
-                            </button>
-                        </li>
-                    }
+                            ))
 
-                </ul>
+                        }
 
-            </div>
+                        {
+                            totalPages !== currentPage &&
+
+                            <li title="Próxima">
+                                <button
+                                    className={`${styles.button__pagination} ${styles.button__arrow}`}
+                                    onClick={nextPage}>
+
+                                    <HiOutlineChevronDoubleRight />
+
+                                </button>
+                            </li>
+                        }
+
+                    </ul>
+
+                </div>
+
+            }
 
         </>
 
