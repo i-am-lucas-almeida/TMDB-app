@@ -32,7 +32,7 @@ export default function usePagination() {
                 ...queryParams,
                 page: actualPage
             })
-            
+
         });
 
     }, [actualPage, navigate, location.search]);
