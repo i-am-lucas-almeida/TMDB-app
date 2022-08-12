@@ -17,7 +17,7 @@ export default function MediaCard({ id, title, name, backdrop_path, poster_path,
 
         <div className={styles.media__container_card} title={title ? title : name}>
 
-            <Link to={`/detalhes/${type}/${id}/${title ? title : name}`}>
+            <Link to={`/details/${type}/${id}/${title ? title : name}`}>
 
                 <div className={styles.media__image}>
 
@@ -65,7 +65,7 @@ export default function MediaCard({ id, title, name, backdrop_path, poster_path,
                         <img src={iconStar} alt="ícone voto" />
 
                         <p className={styles.media__vote}>
-                            {vote_average ? vote_average : "?"}
+                            {vote_average ? vote_average.toFixed(1) : "?"}
                         </p>
 
                     </div>
