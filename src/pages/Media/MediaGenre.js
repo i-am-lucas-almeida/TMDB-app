@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 
 import { useFetch } from "../../hook/useFetch";
+import { useQuery } from "../../hook/useQuery";
 
 import Title from "../../components/Title";
 import Container from "../../components/Container";
@@ -19,7 +20,10 @@ import useTitle from "../../utils/useTitle";
 
 const MediaGenre = () => {
 
-    const { type, name, id } = useParams();
+    const { type, name } = useParams();
+
+    const query = useQuery();
+    const id = query.get("query");
 
     useTitle(`TMDB App | ${name}`);
 
