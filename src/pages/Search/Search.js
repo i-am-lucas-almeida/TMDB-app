@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { getSearch } from "../../lib/apiLinks";
 
 import { useFetch } from "../../hook/useFetch";
+import { useQuery } from "../../hook/useQuery";
 
 import Title from "../../components/Title";
 import Container from "../../components/Container";
@@ -19,7 +19,8 @@ import Footer from "../../components/Footer";
 
 const Search = () => {
 
-    const { id } = useParams();
+    const query = useQuery();
+    const id = query.get("query");
 
     useTitle(`TMDB App | ${id}`);
 
