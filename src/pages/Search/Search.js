@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { getSearch } from "../../lib/apiLinks";
 
 import { useFetch } from "../../hook/useFetch";
@@ -32,12 +31,6 @@ const Search = () => {
 
     const totalPages = data.total_pages;
     const totalResults = data.total_results;
-
-    useEffect(() => {
-
-        setActualPage(1);
-
-    }, [setActualPage, id]);
 
     return (
 
