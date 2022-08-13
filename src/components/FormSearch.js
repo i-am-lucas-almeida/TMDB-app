@@ -1,6 +1,6 @@
 import styles from "../styles/components/FormSearch.module.css";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import ImageSearch from "../assets/icon-search.svg";
@@ -16,7 +16,6 @@ const FormSearch = () => {
         setSearch(e.target.value);
 
     };
-
 
     function handleSearch(e) {
 
@@ -56,7 +55,7 @@ const FormSearch = () => {
                     placeholder="Pesquise por Filmes e Séries"
                     onChange={handleOnChange}
                     value={search}
-                    onKeyDown={handleEnter}
+                    onKeyUp={handleEnter}
                     className={styles.search__input}
                 />
 
