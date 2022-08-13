@@ -13,9 +13,9 @@ import Footer from "../../components/Footer";
 
 const Genres = () => {
 
-    useTitle("TMDB App | Gêneros");
-
     const { type } = useParams();
+
+    useTitle(`TMDB App | ${type === "movie" ? "Filmes" : "Séries"}`);
 
     const URL = getGenres(type === "movie" ? genreMovie : genreTV);
 
