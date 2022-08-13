@@ -25,7 +25,7 @@ const MediaGenre = () => {
     const query = useQuery();
     const id = query.get("query");
 
-    useTitle(`TMDB App | ${name}`);
+    useTitle(`${type === "movie" ? "Filmes" : "Séries"} – ${name} | TMDB App`);
 
     const { setActualPage, actualPage } = usePagination();
 
